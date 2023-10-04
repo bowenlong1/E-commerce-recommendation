@@ -14,9 +14,15 @@ proc sql;
     select 
         a.loan_acct_nbr, 
         a.dt as start_date,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and count=1 then b.dt_sent else . end) as first_dt_sent,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and count=2 then b.dt_sent else . end) as second_dt_sent,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and count=3 then b.dt_sent else . end) as third_dt_sent
+        CASE
+            WHEN count = 1 THEN MIN(case when b.dt_sent between a.dt and a.dt+65 then b.dt_sent else . end)
+            ELSE . END as first_dt_sent,
+        CASE
+            WHEN count = 2 THEN MIN(case when b.dt_sent between a.dt and a.dt+65 then b.dt_sent else . end)
+            ELSE . END as second_dt_sent,
+        CASE
+            WHEN count = 3 THEN MIN(case when b.dt_sent between a.dt and a.dt+65 then b.dt_sent else . end)
+            ELSE . END as third_dt_sent
     from 
         dist_acct a
         left join cred_rpt_sorted b
@@ -27,3 +33,4 @@ proc sql;
         a.dt
     ;
 quit;
+

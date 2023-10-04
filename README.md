@@ -1,14 +1,17 @@
-32         /* Merge data sets */
-33         data combined;
-34             merge dist_acct(in=in1) cred_rpt_sorted(in=in2);
-35             by loan_acct_nbr;
-2                                                          The SAS System                           14:51 Wednesday, October 4, 2023
+/* Merge data sets */
+data combined;
+    merge dist_acct(in=in1) cred_rpt_sorted(in=in2);
+    by loan_acct_nbr;
+    if in1 and in2 and dt_sent >= dt and dt_sent <= intnx('day', dt, 65);
+    retain count 0;
+    count+1;
+    if count = 1 then first_dt_sent = dt_sent;
+    else if count = 2 then second_dt_sent = dt_sent;
+    else if count = 3 then third_dt_sent = dt_sent;
+    drop count;
+run;
 
-36             if in1 and in2 and dt_sent between dt and intnx('day', dt, 65);
-                                          _______
-                                          388
-                                          76
-ERROR 388-185: Expecting an arithmetic operator.
-
-ERROR 76-322: Syntax error, statement will be ignored.
-
+/* Drop duplicates */
+proc sort data=combined out=final_data nodupkey;
+    by loan_acct_nbr dt;
+run;

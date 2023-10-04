@@ -1,34 +1,9 @@
-proc sql;
-    create table combined as
-    select 
-        a.loan_acct_nbr, 
-        a.dt as start_date,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and rownum=1 then b.dt_sent else . end) as first_dt_sent,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and rownum=2 then b.dt_sent else . end) as second_dt_sent,
-        MIN(case when b.dt_sent between a.dt and a.dt+65 and rownum=3 then b.dt_sent else . end) as third_dt_sent
-    from 
-        dist_acct a
-        left join (
-            select 
-                loan_acct_nbr, 
-                dt_sent, 
-                rownum
-            from 
-                (
-                    select 
-                        loan_acct_nbr, 
-                        dt_sent,
-                        monotonic() as rownum
-                    from 
-                        cred_rpt
-                    order by loan_acct_nbr, dt_sent
-                ) sub
-            where rownum <= 3
-        ) b
-        on a.loan_acct_nbr = b.loan_acct_nbr 
-        and b.dt_sent between a.dt and a.dt+65
-    group by 
-        a.loan_acct_nbr, 
-        a.dt
-    ;
-quit;
+36         (select loan_acct_nbr, dt_sent, monotonic() as rownum from cred_rpt order by loan_acct_nbr, dt_sent ) sub where rownum <=
+                                                                               _____
+                                                                               22
+                                                                               76
+36       !  3 ) b
+ERROR 22-322: Syntax error, expecting one of the following: a name, (, ), ',', '.', ANSIMISS, AS, CROSS, EXCEPT, FULL, GROUP, 
+              HAVING, INNER, INTERSECT, JOIN, LEFT, NATURAL, NOMISS, OUTER, RIGHT, UNION, WHERE.  
+
+ERROR 76-322: Syntax error, statement will be ignored.

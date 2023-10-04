@@ -1,1 +1,4 @@
+Help me write a SAS code:
+Table dist_acct has account number (loan_acct_nbr) and date (dt) and other columns, account number with dt are unique identitier.  cred_rpt table has the date (dt_sent) reported to credit bureau for each account number (loan_acct_nbr) and other columns, these two columns are unique identifier. Cred_rpt is big with 10 mil+ rows. 
+Now, for each account in dist_acct table, I want to track them 65 days, so dt<=tracking date<=dt+65, I want to get 3 columns during this 65-day tracking period, the first dt_sent that this account reported to credit bureau, name it first_dt_sent, the second dt_sent that he/she got reported and the third…, it’s possible this account never got reported, so these 3 columns for that account will be all missing, or he/she only got reported once during the 65-day tracking, then only first_dt_sent has value. Be time efficient as I know cred_rpt is large.
 

@@ -19,4 +19,4 @@ Voice data IBM Watson & SAS processing
 Chatbot data IBM Watson & SAS process
 Team Collaboration:
 Actively mentored teammates on servicing projects and catered to the data requirements of other team members.
-![image](https://github.com/bowenlong1/E-commerce-recommendation/assets/38050947/07f0664c-4b4d-4fbe-ab13-1d53fce1eaea)
+

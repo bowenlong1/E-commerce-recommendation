@@ -1,16 +1,7 @@
-from pyspark.sql import Row
-from pyspark.sql.functions import lit, concat_ws
-
-def write_dataframe_to_txt(dataframe, target_directory, csv_filename):
-    # Convert all columns to string except for PS1 and PS2 which should be null
+def write_dataframe_to_txt(dataframe, target_directory, csv_filename): # Convert all columns to string 
     for column in dataframe.columns: 
         dataframe = dataframe.withColumn(column, dataframe[column].cast("string"))
-
-    # Explicitly set PS1 and PS2 columns as null
-    dataframe = dataframe.withColumn("PS1", lit(None).cast("string"))
-    dataframe = dataframe.withColumn("PS2", lit(None).cast("string"))
-
-    # Create the concatenated string for the txt file
+    # Prepare the concatenated DataFrame
     concatenated_df = dataframe.withColumn("single_column", concat_ws("|", *dataframe.columns)).select("single_column")
 
     # Create header row
@@ -44,4 +35,3 @@ def write_dataframe_to_txt(dataframe, target_directory, csv_filename):
 
     # Remove the temporary directory
     dbutils.fs.rm(src_directory, True)
-

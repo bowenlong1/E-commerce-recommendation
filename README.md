@@ -1,13 +1,21 @@
-Profile_id	account_number	program_code	campign_name	Channel	Control_Group	Campaign_type	PS1	PS2	PB1	PB2	PB3	PB4	PB5
-4040590	2.30001E+27	S1	GMF_SERV_PUSH_EM_4660DPD_confirm_Sep23	P	N	E	null	null	GMF	10/17/2023	625.8	8125	1-877-994-9119
-5286065	2.30001E+27	S1	GMF_SERV_PUSH_EM_4660DPD_confirm_Sep23	P	N	E	null	null	GMF	10/20/2023	539.06	8075	1-888-994-7861
-![Uploading image.png…]()
+from pyspark.sql import Row
+from pyspark.sql.functions import lit, concat_ws, when, col
 
-def write_dataframe_to_txt(dataframe, target_directory, csv_filename): # Convert all columns to string 
+def write_dataframe_to_txt(dataframe, target_directory, csv_filename):
+    # Convert all columns to string
     for column in dataframe.columns: 
         dataframe = dataframe.withColumn(column, dataframe[column].cast("string"))
+
+    # Adjust the data for the shift by ensuring that each column aligns with its intended value
+    adjusted_df = dataframe.withColumn("PS1", lit(None).cast("string"))
+    adjusted_df = adjusted_df.withColumn("PS2", lit(None).cast("string"))
+
+    for column in dataframe.columns:
+        if column not in ["PS1", "PS2"]:
+            adjusted_df = adjusted_df.withColumn(column, col(column))
+
     # Prepare the concatenated DataFrame
-    concatenated_df = dataframe.withColumn("single_column", concat_ws("|", *dataframe.columns)).select("single_column")
+    concatenated_df = adjusted_df.withColumn("single_column", concat_ws("|", *adjusted_df.columns)).select("single_column")
 
     # Create header row
     headers = "|".join(dataframe.columns)
@@ -40,4 +48,3 @@ def write_dataframe_to_txt(dataframe, target_directory, csv_filename): # Convert
 
     # Remove the temporary directory
     dbutils.fs.rm(src_directory, True)
-

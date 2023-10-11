@@ -1,14 +1,10 @@
-proc sql;
-create table vint_first as
-select cat, dpd_cat, avg(first_dt_sent - dt) as avg_diff,
-    (select distinct first_dt_sent - dt
-    from vint_sum1
-    where first_dt_sent^=. and dpd_cat^='Others'
-    group by first_dt_sent - dt
-    order by count(*) desc
-    having count(*) = max(count(*))
-    limit 1) as mode_diff
-from vint_sum1
-where first_dt_sent^=. and dpd_cat^='Others'
-group by cat, dpd_cat;
-quit;
+34             group by first_dt_sent - dt
+35             order by count(*) desc
+               _____
+               22
+               76
+ERROR 22-322: Syntax error, expecting one of the following: !, !!, &, (, ), *, **, +, ',', -, '.', /, <, <=, <>, =, >, >=, ?, AND, 
+              BETWEEN, CONTAINS, EQ, EQT, EXCEPT, GE, GET, GT, GTT, HAVING, IN, INTERSECT, IS, LE, LET, LIKE, LT, LTT, NE, NET, 
+              NOT, NOTIN, OR, OUTER, UNION, ^, ^=, |, ||, ~, ~=.  
+
+ERROR 76-322: Syntax error, statement will be ignored.

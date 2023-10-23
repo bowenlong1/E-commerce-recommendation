@@ -10,7 +10,7 @@ def transform_date(date_str):
     dt = datetime.strptime(date_str, '%Y/%m/%d %H:%M:%S')
     
     # Reformat the date
-    new_format = dt.strftime('DIGITAL ETL: Email sent successfully on %d%b%y:%H:%M:%S').upper()
+    new_format = dt.strftime('DIGITAL ETL: Email sent successfully on %d%b%y:%H:%M:%S')
     
     return new_format
 

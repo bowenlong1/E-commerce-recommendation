@@ -1,4 +1,9 @@
+import pandas as pd
 from datetime import datetime
+
+# Sample dataframe
+data = {'date': ['2023/09/07 17:14:25', '2023/09/08 18:15:26']}
+df = pd.DataFrame(data)
 
 def transform_date(date_str):
     # Parse the input date string
@@ -9,7 +14,7 @@ def transform_date(date_str):
     
     return new_format
 
-date_str = '2023/09/07 17:14:25'
-result = transform_date(date_str)
-print(result)
+# Apply the transformation function to the 'date' column
+df['date'] = df['date'].apply(transform_date)
 
+print(df)

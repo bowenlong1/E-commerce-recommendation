@@ -1,11 +1,5 @@
 
-data d0;
-format contact_dt date9.;
-infile "/opt/SAS/SAS_data/projects/DATASCIENCE/RPT/dev/Custom_Data/AAA_Data Science Projects/Collections/Data/4660 dialer file/GMF_Consumer_APR_CHLNGR_&key0..dat" dlm='|' dsd truncover firstobs= 2;
-length project $120. acct_nbr $120.
-custm_key1 $12. ;
-input project acct_nbr custm_key1;
-day_key = &key0.;
-contact_dt = input(put(&key0.,8.),YYMMDD8.) + 1;
-loan_acct_nbr = input(substr(acct_nbr,length(acct_nbr)-11,12),12.);
-run;
+from this table MART_FINC.FINCL_TRANSACT_ITM_FACT you shared with me, I know the waive amount for each fee type, but can I know from anywhere what's the original total fee for each type within the account payoff amount？basically any data source show account payoff amount breakdown by fee types?
+
+
+Also, does waive means clear this fee to $0? for example, customer A has $100 waive for "LATE CHARGES FEE", so what's the original total fee for 'LATE CHARGES' or $100 is actually the total.

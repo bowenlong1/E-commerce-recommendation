@@ -1,5 +1,4 @@
 
-from this table MART_FINC.FINCL_TRANSACT_ITM_FACT you shared with me, I know the waive amount for each fee type, but can I know from anywhere what's the original total fee for each type within the account payoff amount？basically any data source show account payoff amount breakdown by fee types?
+From the table MART_FINC.FINCL_TRANSACT_ITM_FACT you provided, I see the waived amounts for each fee type. Is there a source showing the original total fee for each type within the account payoff amount, broken down by fee types?
 
-
-Also, does waive means clear this fee to $0? for example, customer A has $100 waive for "LATE CHARGES FEE", so what's the original total fee for 'LATE CHARGES' or $100 is actually the total.
+Also, does "waive" mean the fee is reduced to $0? For instance, if a customer has a $100 waiver for "LATE CHARGES FEE," is that the original fee or has it been completely offset?

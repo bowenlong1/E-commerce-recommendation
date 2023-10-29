@@ -1,1 +1,1 @@
-
+Hello, I have completed the biometric screening at personal doctor practice, attached is the completed from signed by my doctor. Below is my doctor information, can I use this form for my wellness discount? please let me know if you have any questions or concerns? 

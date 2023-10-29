@@ -1,1 +1,1 @@
-
+Hello, I wanted to follow up my reimbursement application Application G-AppID278, I submitted it in 2021 and haven't heard anything back yet. I am currently pursuing PhD in data sciences at an accredited university (Harrisburg University), which is highly related to my job. Also, I consistently maintain a 4.0 GPA, so when do I expect to receive the reimbursment?

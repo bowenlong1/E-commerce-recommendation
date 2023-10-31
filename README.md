@@ -1,1 +1,1 @@
-Thank you for your attention. When I first applied in 2021, I was enrolled in the master's program. However, after accumulating sufficient credits, I transitioned to a PhD program within the same department at my institution. Could you please confirm if the PhD program is ineligible for reimbursement? I'm aware of colleagues, such as Chris Chen from CX Analytics, who received reimbursements while pursuing a PhD in Education at TCU.
+

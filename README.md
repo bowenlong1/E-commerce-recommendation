@@ -1,13 +1,17 @@
-from datetime import date, datetime, time, timedelta
-from getpass import getpass
-import glob
-import pandas as pd
-import pytz
-
-from pyspark.sql import DataFrame as pyspark_dataframe, Row
-from pyspark.sql.functions import *
-from pyspark.sql.types import DateType, IntegerType, LongType, StringType, StructField, StructType
-from pyspark.sql.window import Window
-from delta.tables import *
-
-# import cx_Oracle  # Uncomment this line if cx_Oracle is needed and installed
+['FINC_AMT', 'CUR_APR', 'PMT_AMT', 'pti', 'CREDIT_TIER',
+       'CUSTOMER_STATE', 'loan_age', 'precsn_score',
+       'last_5_mnth_excl_7_inq_qty', 'since_recent_auto_mnth_qty',
+       'net_fractn_auto_burdn_qty', 'ever_late_60_trd_qty',
+       'avg_in_file_mnth_qty', 'last_6_mnth_late_60_trd_qty',
+       'last_6_mnth_late_30_trd_qty', 'auto_install_burden_net_fractn',
+       'totl_now_delinq_amt', 'dpd', 'PAST_DUE_AMT', 'dpd_1mnth_begain',
+       'dpd_1_mnth_max', 'dpd_2mnth_begain', 'dpd_2_mnth_max',
+       'dpd_3mnth_begain', 'dpd_3_mnth_max', 'dpd_4mnth_begain',
+       'dpd_4_mnth_max', 'dpd_5mnth_begain', 'dpd_5_mnth_max',
+       'dpd_6mnth_begain', 'dpd_6_mnth_max', 'LAST_PMT_AMT',
+       'SINCE_LAST_PMT_DAY_QTY', 'days_to_next_pmt', 'days_since_ptp',
+       'sum_IC_cx_call_3m', 'oc_1week', 'oc_1m', 'oc_3m', 'contact_1week',
+       'contact_1m', 'contact_3m', 'msg_1week', 'msg_1m', 'msg_3m',
+       'days_since_last_contact', 'dsf', 'ACCT_PAYOFF_AMT', 'times_rpt',
+       'days_since_last_rpt', 'days_since_past_due',
+       'ROLL_121_MIN_DELINQ_DAY_QTY', 'days_since_last_plan', 'wav_amt']

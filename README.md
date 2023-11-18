@@ -1,9 +1,12 @@
-import mlflow
 
-model_name =  "pay14_eot_notax"
-model_version = 1
+import pickle
 
-model_uri=f"models:/{model_name}/{model_version}"
-loaded_model = mlflow.pyfunc.load_model(model_uri=model_uri)
+pickle.dump(model, open('/Workspace/Users/bowen.long@gmfinancial.com/lease eot/model.pkl','wb'))
+PicklingError: Can't pickle <function <lambda> at 0x7f2e3015c5e0>: attribute lookup <lambda> on __main__ failed
+---------------------------------------------------------------------------
+PicklingError                             Traceback (most recent call last)
+File <command-2746195731730244>:3
+      1 import pickle
+----> 3 pickle.dump(model, open('/Workspace/Users/bowen.long@gmfinancial.com/lease eot/model.pkl','wb'))
 
-'PyFuncModel' object has no attribute 'predict_proba'
+PicklingError: Can't pickle <function <lambda> at 0x7f2e3015c5e0>: attribute lookup <lambda> on __main__ failed

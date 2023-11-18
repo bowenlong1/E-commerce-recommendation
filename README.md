@@ -1,54 +1,21 @@
-FINC_AMT                          float64
-CUR_APR                           float64
-PMT_AMT                           float64
-pti                               float64
-CREDIT_TIER                        object
-CUSTOMER_STATE                     object
-loan_age                            int64
-precsn_score                      float64
-last_5_mnth_excl_7_inq_qty        float64
-since_recent_auto_mnth_qty        float64
-net_fractn_auto_burdn_qty         float64
-ever_late_60_trd_qty              float64
-avg_in_file_mnth_qty              float64
-last_6_mnth_late_60_trd_qty       float64
-last_6_mnth_late_30_trd_qty       float64
-auto_install_burden_net_fractn    float64
-totl_now_delinq_amt               float64
-dpd                                 int64
-PAST_DUE_AMT                      float64
-dpd_1mnth_begain                  float64
-dpd_1_mnth_max                      int64
-dpd_2mnth_begain                  float64
-dpd_2_mnth_max                    float64
-dpd_3mnth_begain                  float64
-dpd_3_mnth_max                    float64
-dpd_4mnth_begain                  float64
-dpd_4_mnth_max                    float64
-dpd_5mnth_begain                  float64
-dpd_5_mnth_max                    float64
-dpd_6mnth_begain                  float64
-dpd_6_mnth_max                    float64
-LAST_PMT_AMT                      float64
-SINCE_LAST_PMT_DAY_QTY            float64
-days_to_next_pmt                    int64
-days_since_ptp                      int64
-sum_IC_cx_call_3m                   int64
-oc_1week                            int64
-oc_1m                               int64
-oc_3m                               int64
-contact_1week                       int64
-contact_1m                          int64
-contact_3m                          int64
-msg_1week                           int64
-msg_1m                              int64
-msg_3m                              int64
-days_since_last_contact             int64
-dsf                                 int64
-ACCT_PAYOFF_AMT                   float64
-times_rpt                           int64
-days_since_last_rpt               float64
-days_since_past_due                 int64
-ROLL_121_MIN_DELINQ_DAY_QTY         int64
-days_since_last_plan              float64
-wav_amt                           float64
+correct_types = {
+    'FINC_AMT': 'float64',
+    'CUR_APR': 'float64',
+    'PMT_AMT': 'float64',
+    'pti': 'float64',
+    'CREDIT_TIER': 'object',
+    'CUSTOMER_STATE': 'object',
+    'loan_age': 'int64',
+    # ... (include all other columns with their respective types)
+    'days_since_last_plan': 'float64',
+    'wav_amt': 'float64'
+}
+
+# Filter the correct_types dictionary to only include keys that are actually columns in the DataFrame
+correct_types = {col: dtype for col, dtype in correct_types.items() if col in df.columns}
+
+# Apply the type conversion to the DataFrame
+df = df.astype(correct_types)
+
+# Check the new data types to confirm the changes
+df.dtypes

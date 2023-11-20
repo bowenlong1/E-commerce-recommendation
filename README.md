@@ -1,20 +1,17 @@
-import shap
+import pandas as pd
+from shap import summary_plot
 
-# Assuming 'model' is your trained model and 'X_val' is your validation set
+# Assuming 'shap_values' is your DataFrame containing SHAP values
 # The code for SHAP explanation you provided
 
-# Get the mode for imputing null values
-mode = X_train.mode().iloc[0]
+# Calculate mean absolute SHAP values for each feature
+mean_abs_shap_values = shap_values.abs().mean(axis=0)
 
-# Summarize the background data using shap.sample or shap.kmeans
-background_summary = shap.sample(X_train.fillna(mode), 500)  # or shap.kmeans(X_train.fillna(mode), 500)
+# Sort feature names based on mean absolute SHAP values
+sorted_feature_names = mean_abs_shap_values.sort_values(ascending=False).index.tolist()
 
-# Sample some rows from the validation set to explain
-example = X_val.sample(n=min(1000, X_val.shape[0]), random_state=537209548).fillna(mode)
+# Display the sorted feature names
+print(sorted_feature_names)
 
-# Use Kernel SHAP to explain feature importance on the sampled rows from the validation set.
-predict = lambda x: model.predict(pd.DataFrame(x, columns=X_train.columns))
-explainer = shap.KernelExplainer(predict, background_summary, link="identity")
-shap_values = explainer.shap_values(example, l1_reg=False, nsamples=500)
-
-# Rest of your code for summary_plot or other visualizations
+# Create the summary plot using the sorted feature names
+summary_plot(shap_values, example, feature_names=sorted_feature_names, class_names=model.classes_)

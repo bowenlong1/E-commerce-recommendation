@@ -1,18 +1,9 @@
-import numpy as np
-import pandas as pd
-from shap import summary_plot
+Currently, for 1-90DPD EOT accounts, dialer and manual call strategy are separate, 
+•	For dialer calls, 1-14DPD accounts are not called on dialer, 15-60DPD accounts are holdout one day after every two days of call (e,g 15-16DPD called, 17dpd holout, 18-19dpd called, 20dpd holdout etc), 61-80dpd accounts are called everyday, 81-90 accounts are called on selected dpd (83, 85, 86, 88, 90dpd)
+•	for manual calls there is no holdout strategy/schedule, except the accounts made promise and/or with courtesy hold
+Servicing will move manual calls to dialer, also, with market back to normal , we expect less people will choose buyout at the end of lease term so we expect to see increase of EOT workload. So to further reduce workload, Data science designs a alternative 1-90DPD contact strategy based on account’s payment propensity, deficiency balance and days to past due that integrates dialer and manual calls
+Data science splits the 1-90DPD EOT portfolio to property tax only and non-property tax only accounts and develops separate strategies
+For non-property tax only, data science develops a machine learning model to predict account’s payment propensity and develops the contact strategy based on model results and account’s diffencicy balance leveraging call, email and push channels
 
-# Assuming 'shap_values' is your NumPy array containing SHAP values
-# The code for SHAP explanation you provided
+For property tax only accounts, we expect the % of this portfolio will naturally reduce with market back to normal, data science primarily focus on develop a email contact strategy to improve the cure rate of this group of customer
 
-# Calculate mean absolute SHAP values for each feature
-mean_abs_shap_values = np.abs(shap_values).mean(axis=0)
-
-# Sort feature names based on mean absolute SHAP values
-sorted_feature_names = mean_abs_shap_values.argsort()[::-1]
-
-# Display the sorted feature names
-print(sorted_feature_names)
-
-# Create the summary plot using the sorted feature names
-summary_plot(shap_values, example, feature_names=sorted_feature_names, class_names=model.classes_)

@@ -1,30 +1,28 @@
-Sub LinkExistingCheckboxes()
+Sub LinkCheckboxesAndFormat()
     Dim ws As Worksheet
     Dim cb As CheckBox
     Dim i As Integer
-    Dim checkboxIndex As Integer
+    Dim leftPosition As Double
+    Dim topPosition As Double
     
     ' Set the worksheet
-    Set ws = ThisWorkbook.Sheets("YourSheetName") ' Replace "YourSheetName" with the actual sheet name
+    Set ws = ThisWorkbook.Sheets("design")
     
-    ' Initialize checkbox index
-    checkboxIndex = 1
-    
-    ' Loop through the checkboxes in columns I to N
-    For i = 3 To 92 ' Adjust the range as needed
-        ' Link each existing checkbox to the corresponding cell in columns U to Z
+    ' Loop through the checkboxes
+    For i = 4 To 93 ' Adjust the range as needed
+        ' Set position for each checkbox
+        leftPosition = ws.Cells(i, 10).Left ' Column J is the 10th column
+        topPosition = ws.Cells(i, 10).Top + 5 ' Add 5 for a little formatting
+        
+        ' Create checkboxes in columns J to O
         For j = 0 To 5
-            ' Reference the existing checkbox using the index
-            Set cb = ws.CheckBoxes(checkboxIndex)
+            Set cb = ws.CheckBoxes.Add(leftPosition + (j * 60), topPosition, 50, 20)
             
-            ' Link the checkbox to the corresponding cell in columns U to Z
-            cb.LinkedCell = ws.Cells(i, 21 + j).Address ' Column U is the 21st column
+            ' Link each checkbox to the corresponding cell in columns J to O
+            cb.LinkedCell = ws.Cells(i, 10 + j).Address
             
-            ' Customize checkbox appearance (optional)
+            ' Customize checkbox appearance
             cb.Text = "" ' Remove default text
-            
-            ' Increment the checkbox index for the next iteration
-            checkboxIndex = checkboxIndex + 1
         Next j
     Next i
 End Sub

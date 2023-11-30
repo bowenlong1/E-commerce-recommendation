@@ -1,28 +1,8 @@
-Sub LinkCheckboxesAndFormat()
-    Dim ws As Worksheet
-    Dim cb As CheckBox
-    Dim i As Integer
-    Dim cellWidth As Double
-    Dim cellHeight As Double
-    
-    ' Set the worksheet
-    Set ws = ThisWorkbook.Sheets("design")
-    
-    ' Loop through the checkboxes
-    For i = 4 To 93 ' Adjust the range as needed
-        ' Set position for each checkbox at the center of the cell
-        cellWidth = ws.Cells(i, 10).Width
-        cellHeight = ws.Cells(i, 10).Height
-        
-        ' Create checkboxes in columns J to O
-        For j = 0 To 5
-            Set cb = ws.CheckBoxes.Add(ws.Cells(i, 10 + j).Left + (cellWidth - 50) / 2, ws.Cells(i, 10 + j).Top + (cellHeight - 20) / 2, 50, 20)
-            
-            ' Link each checkbox to the corresponding cell in columns J to O
-            cb.LinkedCell = ws.Cells(i, 10 + j).Address
-            
-            ' Customize checkbox appearance
-            cb.Text = "" ' Remove default text
-        Next j
-    Next i
-End Sub
+Hello Bowen,
+
+The National Interest Waiver (NIW) is a waiver of the PERM labor certification on the basis that the work you are doing is national in scope and has a direct benefit to a specific national interest of the United States. If you are working on projects that are of significance to the interests of the U.S. on a national scale, beyond just the benefit of GMF, then the NIW might be a potential option. Can you please confirm if you are working on projects of significance to the interests of the U.S. on a national scale, beyond just the benefit of GMF?
+
+Please let me know if you have any questions. 
+
+Thank you, 
+

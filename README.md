@@ -1,3 +1,10 @@
-Morning Yesenia! Appreicate your help helping me consulting the law firm and leadship about NIW, although GMF couldn’t support me at this time, I decided to prepare myself for it. By the way, since I have both several years of working experience and some research projects, do you suggest I need to emphasize more my working experience or research or maybe both to support my NIW application? Or any resources you suggested for me to apply NIW? 
+Hello Yesenia,
 
+I appreciate your assistance in consulting with the law firm and leadership regarding the NIW. Although GMF couldn't support me at this time, I've decided to prepare for it independently.
+
+By the way, given my several years of working experience and involvement in various research projects, would you recommend emphasizing more on my work experience, research, or perhaps both to strengthen my NIW application? Additionally, do you have any recommended resources for applying for the NIW?
+
+Thank you for your guidance.
+
+Best regards,
 

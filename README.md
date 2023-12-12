@@ -2,9 +2,10 @@ Proposing Three Alternative Strategies for holdouts based on days past due, mode
 
 
 
-"Current strategy holds out only based on days past due with more holdouts on early delinquency and less on late delinquency."
 
-"Strategy Proposals 1 & 2 have more holdouts for early delinquency and accounts more likely to pay. Meanwhile, Strategy Proposal 3 has more holdouts for late delinquency and accounts less likely to pay."
+"Current strategy: holdouts based on days past due, with more on early delinquency and less on late delinquency."
 
-"Strategy Proposal 1 does not include account deficiency balance in holdout design, while Strategies 2 & 3 include deficiency and hold out more for accounts with low deficiency."
+"Strategy Proposals 1 & 2: prioritize more holdouts for early delinquency and likely-to-pay accounts. Strategy Proposal 3: more holdouts for late delinquency and less likely-to-pay accounts."
+
+"Strategy Proposal 1: excludes account deficiency balance; Strategies 2 & 3: include deficiency, holding out more for low deficiency accounts."
 

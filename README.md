@@ -3,10 +3,10 @@ import numpy as np
 
 def calculate_psi(expected, actual):
     # Get unique categories from both expected and actual
-    categories = np.union1d(expected.dropna().unique(), actual.dropna().unique())
+    categories = pd.concat([expected.dropna(), actual.dropna()]).unique()
 
     # Create bins based on unique categories
-    bin_edges = pd.IntervalIndex.from_arrays(categories[:-1], categories[1:], closed='left')
+    bin_edges = pd.IntervalIndex.from_tuples([(cat, cat) for cat in categories])
 
     # Bin the data
     expected_bins = pd.cut(expected, bins=bin_edges, include_lowest=True)
@@ -27,5 +27,3 @@ def calculate_psi(expected, actual):
 # Example usage
 # psi_value = calculate_psi(acct['cat_freq_545_fnl'], hist['cat_freq_545_fnl'])
 # print(f'PSI for cat_freq_545_fnl: {psi_value}')
-
-

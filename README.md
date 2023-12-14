@@ -2,11 +2,8 @@ import pandas as pd
 import numpy as np
 
 def calculate_psi(expected, actual):
-    # Get unique categories from both expected and actual
-    categories = pd.concat([expected.dropna(), actual.dropna()]).unique()
-
-    # Create bins based on unique categories
-    bin_edges = pd.IntervalIndex.from_tuples([(cat, cat) for cat in categories])
+    # Use unique categories from 'expected' as bin edges
+    bin_edges = pd.IntervalIndex.from_arrays(expected.cat.categories, expected.cat.categories, closed='left')
 
     # Bin the data
     expected_bins = pd.cut(expected, bins=bin_edges, include_lowest=True)

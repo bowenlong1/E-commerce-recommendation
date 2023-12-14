@@ -1,21 +1,53 @@
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-File <command-3429633109745043>, line 16
-     13 # Iterate over variables
-     14 for i, var in enumerate(variables):
-     15     # Calculate PSI and get actual/expected counts
----> 16     psi, actual_counts, expected_counts = calculate_psi(expected, actual, day_key_prior, day_key_after, var)
-     18     # Plot actual and expected distributions
-     19     sns.barplot(x=expected_counts.index, y=expected_counts, ax=axes[i], color='blue', label='Expected',alpha = 0.5)
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-File <command-3429633109745036>, line 5, in calculate_psi(expected, actual, day_key_prior, day_key_after, var)
-      4 def calculate_psi(expected, actual, day_key_prior, day_key_after, var):
-----> 5     expected_bins = expected[(day_key_prior <= expected.day_key) & (expected.day_key <= day_key_after)][var]
-      6     count = expected[(day_key_prior <= expected.day_key) & (expected.day_key <= day_key_after)]['day_key'].nunique()
-      8     actual_bins = actual[var]
+def calculate_psi(expected, actual, day_key_prior, day_key_after, var):
+    # Convert day_key to numeric if it's a string
+    if pd.api.types.is_string_dtype(expected['day_key']):
+        expected['day_key'] = pd.to_numeric(expected['day_key'], errors='coerce')
+    if pd.api.types.is_string_dtype(actual['day_key']):
+        actual['day_key'] = pd.to_numeric(actual['day_key'], errors='coerce')
 
-File /databricks/python/lib/python3.10/site-packages/pandas/core/ops/common.py:70, in _unpack_zerodim_and_defer.<locals>.new_method(self, other)
-     66             return NotImplemented
-     68 other = item_from_zerodim(other)
----> 70 return method(self, other)
+    expected_bins = expected[(day_key_prior <= expected.day_key) & (expected.day_key <= day_key_after)][var]
+    count = expected[(day_key_prior <= expected.day_key) & (expected.day_key <= day_key_after)]['day_key'].nunique()
+
+    actual_bins = actual[var]
+
+    expected_counts = expected_bins.value_counts(sort=False).sort_index() / count
+    actual_counts = actual_bins.value_counts(sort=False).sort_index()
+
+    # Calculate PSI for each bin
+    psi_values = ((actual_counts - expected_counts) / expected_counts).replace({0: 1e-10})
+
+    # Sum the PSI values
+    psi = np.sum(psi_values * np.log(actual_counts / expected_counts))
+
+    return psi, actual_counts, expected_counts
+
+# Variables to analyze
+variables = ['cat_freq_545_fnl', 'cat_days_to_next_pmt', 'cat_dpd_6_mnth_max', 'cat_dpd_5_mnth_max', 'cat_dpd_2_mnth_max']
+
+# Day keys
+day_key_prior = 20231023
+day_key_after = 20231121
+
+# Create subplots for each variable
+fig, axes = plt.subplots(nrows=len(variables), ncols=1, figsize=(8, 6 * len(variables)))
+
+# Iterate over variables
+for i, var in enumerate(variables):
+    # Calculate PSI and get actual/expected counts
+    psi, actual_counts, expected_counts = calculate_psi(expected, actual, day_key_prior, day_key_after, var)
+
+    # Plot actual and expected distributions with adjusted transparency
+    sns.barplot(x=expected_counts.index, y=expected_counts, ax=axes[i], color='blue', label='Expected', alpha=0.5)
+    sns.barplot(x=actual_counts.index, y=actual_counts, ax=axes[i], color='orange', label='Actual', alpha=0.5)
+
+    axes[i].set_title(f'Variable: {var}, PSI: {psi:.4f}')
+    axes[i].legend()
+
+plt.tight_layout()
+plt.show()
 

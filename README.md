@@ -1,5 +1,5 @@
-For lease EOT, we need create feature based on customer’s latest credit bureau reporting timing, these fields are we all need as for now to create this feature. 
+For the Lease EOT, we need to create a feature based on the customer's latest credit bureau reporting timing. The provided fields are all we need for now to create this feature.
 
-Do we still have flexibility to add additional features in the future in case for model re-training and update?
+In case of model re-training and updates, do we still have the flexibility to add additional features in the future?
 
 

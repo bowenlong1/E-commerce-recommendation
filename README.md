@@ -13,7 +13,7 @@ target = spark.sql("""
     FROM view_a a
     LEFT JOIN view_b b
     ON a.loan_acct_nbr = b.partial_acct_nbr
-    AND CAST(TO_DATE(TO_UTC_TIMESTAMP(TO_DATE(a.day_key, 'yyyyMMdd'), 'UTC')) + INTERVAL 7 DAYS AS STRING) = b.day_key
+    AND CAST(TO_DATE(CAST(a.day_key AS STRING), 'yyyyMMdd') + INTERVAL 7 DAYS AS STRING) = b.day_key
 """)
 
 # Save the result as a new table
@@ -21,4 +21,3 @@ target.write.saveAsTable("default.target", mode="overwrite")
 
 # Stop the Spark session
 spark.stop()
-

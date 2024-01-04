@@ -1,31 +1,25 @@
-
-    "precsn_score": 'float64',
-    "dpd_5week": 'int64',
-    "cur_apr": 'float64',
-    "dpd_2_mnth_max": 'int64',
-    "total_pmt_1m": 'float64',
-    "cur_mnth_bill": 'float64'
-})
-
-TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-File <command-708663598832660>, line 1
-----> 1 df[fet_lst_up] = df[fet_lst_up].astype({
-      2     "dpd_3week": 'int64',
-      3     "since_last_pmt_day_qty": 'int64',
-      4     "days_to_next_pmt": 'int64',
-      5     "total_pmt_3m": 'float64',
-      6     "past_due_amt": 'float64',
-      7     "dpd_7week": 'int64',
-      8     "days_since_last_ext": 'int64',
-      9     "days_since_ptp": 'int64',
-     10     "days_in_call_queue_qty": 'int64',
-     11     "dif_curdpd_maxdpd": 'float64',
-     12     "days_since_last_contact": 'int64',
-     13     "pti": 'float64',
-     14     "last_pmt_amt": 'float64',
-     15     "freq_545_fnl": 'float64',
-     16     "total_pmt_1week": 'float64',
-     17     "dpd_6_mnth_max": 'float64',
-     18     "finc_amt": 'float64',
+df['dpd_3week'] = df['dpd_3week'].astype('int64')
+df['since_last_pmt_day_qty'] = df['since_last_pmt_day_qty'].astype('int64')
+df['days_to_next_pmt'] = df['days_to_next_pmt'].astype('int64')
+df['total_pmt_3m'] = df['total_pmt_3m'].astype('float64')
+df['past_due_amt'] = df['past_due_amt'].astype('float64')
+df['dpd_7week'] = df['dpd_7week'].astype('int64')
+df['days_since_last_ext'] = df['days_since_last_ext'].astype('int64')
+df['days_since_ptp'] = df['days_since_ptp'].astype('int64')
+df['days_in_call_queue_qty'] = df['days_in_call_queue_qty'].astype('int64')
+df['dif_curdpd_maxdpd'] = df['dif_curdpd_maxdpd'].astype('float64')
+df['days_since_last_contact'] = df['days_since_last_contact'].astype('int64')
+df['pti'] = df['pti'].astype('float64')
+df['last_pmt_amt'] = df['last_pmt_amt'].astype('float64')
+df['freq_545_fnl'] = df['freq_545_fnl'].astype('float64')
+df['total_pmt_1week'] = df['total_pmt_1week'].astype('float64')
+df['dpd_6_mnth_max'] = df['dpd_6_mnth_max'].astype('float64')
+df['finc_amt'] = df['finc_amt'].astype('float64')
+df['cust_state_en'] = df['cust_state_en'].astype('int64')
+df['dpd_5_mnth_max'] = df['dpd_5_mnth_max'].astype('float64')
+df['precsn_score'] = df['precsn_score'].astype('float64')
+df['dpd_5week'] = df['dpd_5week'].astype('int64')
+df['cur_apr'] = df['cur_apr'].astype('float64')
+df['dpd_2_mnth_max'] = df['dpd_2_mnth_max'].astype('int64')
+df['total_pmt_1m'] = df['total_pmt_1m'].astype('float64')
+df['cur_mnth_bill'] = df['cur_mnth_bill'].astype('float64')

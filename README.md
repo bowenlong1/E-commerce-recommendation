@@ -1,3 +1,4 @@
+
 df['dpd_3week'] = df['dpd_3week'].astype('int64')
 df['since_last_pmt_day_qty'] = df['since_last_pmt_day_qty'].astype('int64')
 df['days_to_next_pmt'] = df['days_to_next_pmt'].astype('int64')
@@ -6,20 +7,26 @@ df['past_due_amt'] = df['past_due_amt'].astype('float64')
 df['dpd_7week'] = df['dpd_7week'].astype('int64')
 df['days_since_last_ext'] = df['days_since_last_ext'].astype('int64')
 df['days_since_ptp'] = df['days_since_ptp'].astype('int64')
-df['days_in_call_queue_qty'] = df['days_in_call_queue_qty'].astype('int64')
-df['dif_curdpd_maxdpd'] = df['dif_curdpd_maxdpd'].astype('float64')
-df['days_since_last_contact'] = df['days_since_last_contact'].astype('int64')
-df['pti'] = df['pti'].astype('float64')
-df['last_pmt_amt'] = df['last_pmt_amt'].astype('float64')
-df['freq_545_fnl'] = df['freq_545_fnl'].astype('float64')
-df['total_pmt_1week'] = df['total_pmt_1week'].astype('float64')
-df['dpd_6_mnth_max'] = df['dpd_6_mnth_max'].astype('float64')
-df['finc_amt'] = df['finc_amt'].astype('float64')
-df['cust_state_en'] = df['cust_state_en'].astype('int64')
-df['dpd_5_mnth_max'] = df['dpd_5_mnth_max'].astype('float64')
-df['precsn_score'] = df['precsn_score'].astype('float64')
-df['dpd_5week'] = df['dpd_5week'].astype('int64')
-df['cur_apr'] = df['cur_apr'].astype('float64')
-df['dpd_2_mnth_max'] = df['dpd_2_mnth_max'].astype('int64')
-df['total_pmt_1m'] = df['total_pmt_1m'].astype('float64')
-df['cur_mnth_bill'] = df['cur_mnth_bill'].astype('float64')
+df['da
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+File <command-708663598832660>, line 1
+----> 1 df['dpd_3week'] = df['dpd_3week'].astype('int64')
+      2 df['since_last_pmt_day_qty'] = df['since_last_pmt_day_qty'].astype('int64')
+      3 df['days_to_next_pmt'] = df['days_to_next_pmt'].astype('int64')
+
+File /databricks/python/lib/python3.10/site-packages/pandas/core/generic.py:5912, in NDFrame.astype(self, dtype, copy, errors)
+   5905     results = [
+   5906         self.iloc[:, i].astype(dtype, copy=copy)
+   5907         for i in range(len(self.columns))
+   5908     ]
+   5910 else:
+   5911     # else, only a single dtype is given
+-> 5912     new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+   5913     return self._constructor(new_data).__finalize__(self, method="astype")
+   5915 # GH 33113: handle empty frame or series
+
+File /databricks/python/lib/python3.10/site-packages/pandas/core/internals/managers.py:419, in BaseBlockManager.astype(self, dtype, copy, errors)
+    418 def astype(self: T, dtype, copy: bool = False, errors: str = "raise") -> T:
+--> 419     return self.apply("astype", dtype=dtype, copy=copy, errors=errors)

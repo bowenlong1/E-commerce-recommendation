@@ -1,3 +1,2 @@
-import pandas as pd
+df['dpd'] = df['dpd'].replace({None: np.nan}).astype('float64').astype(pd.Int64Dtype())
 
-df['dpd'] = df['dpd'].astype(pd.Int64Dtype())

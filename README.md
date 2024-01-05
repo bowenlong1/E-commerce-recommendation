@@ -1,4 +1,5 @@
-"For each targeted percentage of workload reduction, we propose two alternative holdout strategies based on days past due, propensity to pay, and account deficiency balance, while leveraging digital channels to enhance cure rates."
+Note: This slide uses a 20% targeted workload reduction as an example. See appendix for strategy details for both 20% and 50% targeted workload reduction.
+![image](https://github.com/bowenlong1/E-commerce-recommendation/assets/38050947/1abb875d-5727-4f03-931e-f6aaf8b9161b)
 
 
 

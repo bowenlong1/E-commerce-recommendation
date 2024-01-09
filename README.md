@@ -1,5 +1,9 @@
-Hello, in the Events section from thehub homepage, it shows Chinese New Year as Jan 25. However, this is wrong, the Chinese new year for 2024 is Feburay 10, please correct. Appreciated your understanding and support for chinese community
 
+Subject: Correction for Chinese New Year Date
 
+Hello,
 
+I noticed an error in the Events section on thehub homepage. It states that Chinese New Year is on January 25, but for 2024, it is on February 10. Please make the necessary correction. I appreciate your understanding and support for the Chinese community.
 
+Thank you,
+[Your Name]

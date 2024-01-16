@@ -1,10 +1,12 @@
 Hi Iris,
-I am so glad we are matched and you becoming my mentor! A brief introduction about myself, I am currently working as a senior data scientist at data science department, my focus is on utilizing algorithms and programming tools to develop dialer, email, push notification strategies for collection team to improve collection effectiveness on delinquent customers. I have been with GMF for about 4 years, I want to leverage this mentorship opportunity to further my softkills including communication, leadership, presentation etc. 
 
-On the personal side, I am originally from China, I came to the US in 2016 to purse my master degree, after graduated in 2018, I have been working in the US since then. In my spare time, I like playing sports such as basketable, tennis and socialize with friends. I also like doing research, so I am pursing a data sciences phd while working full time.
+I'm delighted that we've been matched, and I'm thrilled to have you as my mentor! Here's a brief introduction about myself: I currently serve as a Senior Data Scientist in the Data Science Department, where I focus on utilizing algorithms and programming tools to develop dialer, email, and push notification strategies for the collection team, aiming to enhance the effectiveness of collections on delinquent customers. I've been with GMF for about four years, and I see this mentorship as an excellent opportunity to develop my soft skills, including communication, leadership, and presentation.
 
-I am looking forward the mentor journey adhead, would you like me to schedule a introduction meeting this or next week to learn more about each and discuss our mentorship plan? Looking forward to hearing from you!
+On a personal note, I'm originally from China and came to the US in 2016 to pursue my master's degree. After graduating in 2018, I've been working in the US ever since. In my spare time, I enjoy playing sports such as basketball and tennis and socializing with friends. Additionally, I have a passion for research, which is why I'm pursuing a Ph.D. in Data Sciences while working full-time.
+
+I'm eagerly looking forward to the mentorship journey ahead. Would you be available for an introductory meeting this or next week to get to know each other better and discuss our mentorship plan?
+
+Looking forward to hearing from you!
 
 Best,
 Bowen
-

@@ -1,1 +1,1 @@
-"Hey Mani, would you mind breaking down the PBI for the 46-60 strategy into two PBIs? One for the strategy code and one for the second pipeline, as they are from separate codes. This way, it will be easier to track."
+

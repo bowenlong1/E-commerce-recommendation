@@ -1,1 +1,1 @@
-Hey Mani, would you mind breakdown the PBI for 46-60 strategy to two PBIs? one for strategy code and one for 2nd pipeline as they are from seperated codes, this way will be easier to track.
+"Hey Mani, would you mind breaking down the PBI for the 46-60 strategy into two PBIs? One for the strategy code and one for the second pipeline, as they are from separate codes. This way, it will be easier to track."

@@ -1,3 +1,4 @@
+/* Reordered pullkeys from 0 to 71 */
 %let pullkey0 = 2023_10_23;
 %let pullkey1 = 2023_10_24;
 %let pullkey2 = 2023_10_25;
@@ -27,35 +28,34 @@
 %let pullkey26 = 2023_11_24;
 %let pullkey27 = 2023_11_25;
 %let pullkey28 = 2023_11_27;
-%let pullkey28_2 = 2023_11_28;
-%let pullkey28_3 = 2023_11_29;
-%let pullkey29 = 2023_11_30;
-%let pullkey31 = 2023_12_01;
-%let pullkey32 = 2023_12_02;
-%let pullkey33 = 2023_12_04;
-%let pullkey34 = 2023_12_05;
-%let pullkey35 = 2023_12_06;
-%let pullkey36 = 2023_12_07;
-%let pullkey37 = 2023_12_08;
-%let pullkey38 = 2023_12_09;
-%let pullkey39 = 2023_12_11;
-%let pullkey40 = 2023_12_12;
-%let pullkey41 = 2023_12_13;
-%let pullkey42 = 2023_12_14;
-%let pullkey43 = 2023_12_15;
-%let pullkey44 = 2023_12_16;
-%let pullkey45 = 2023_12_18;
-%let pullkey46 = 2023_12_19;
-%let pullkey47 = 2023_12_20;
-%let pullkey48 = 2023_12_21;
-%let pullkey49 = 2023_12_22;
-%let pullkey50 = 2023_12_23;
-%let pullkey51 = 2023_12_25;
-%let pullkey52 = 2023_12_26;
-%let pullkey53 = 2023_12_27;
-%let pullkey54 = 2023_12_28;
-%let pullkey55 = 2023_12_29;
-%let pullkey56 = 2023_12_30;
+%let pullkey29 = 2023_11_28;
+%let pullkey30 = 2023_11_29;
+%let pullkey31 = 2023_11_30;
+%let pullkey32 = 2023_12_01;
+%let pullkey33 = 2023_12_02;
+%let pullkey34 = 2023_12_04;
+%let pullkey35 = 2023_12_05;
+%let pullkey36 = 2023_12_06;
+%let pullkey37 = 2023_12_07;
+%let pullkey38 = 2023_12_08;
+%let pullkey39 = 2023_12_09;
+%let pullkey40 = 2023_12_11;
+%let pullkey41 = 2023_12_12;
+%let pullkey42 = 2023_12_13;
+%let pullkey43 = 2023_12_14;
+%let pullkey44 = 2023_12_15;
+%let pullkey45 = 2023_12_16;
+%let pullkey46 = 2023_12_18;
+%let pullkey47 = 2023_12_19;
+%let pullkey48 = 2023_12_20;
+%let pullkey49 = 2023_12_21;
+%let pullkey50 = 2023_12_22;
+%let pullkey51 = 2023_12_23;
+%let pullkey52 = 2023_12_25;
+%let pullkey53 = 2023_12_26;
+%let pullkey54 = 2023_12_27;
+%let pullkey55 = 2023_12_28;
+%let pullkey56 = 2023_12_29;
 %let pullkey57 = 2024_01_01;
 %let pullkey58 = 2024_01_02;
 %let pullkey59 = 2024_01_03;
@@ -72,14 +72,19 @@
 %let pullkey70 = 2024_01_16;
 %let pullkey71 = 2024_01_17;
 
-/* Loop through and create datasets from email0 to email71 */
+/* Create datasets email0 to email71 */
+%macro create_email_datasets;
 %do i = 0 %to 71;
-  data email&i.;
-    infile "&idata2./EXP42_46_60_DPD_Email_Logs_&pullkey&i..txt" dlm='|' dsd truncover firstobs= 2;
-    length 'Account # (Recipient)'n $120. Address $120.
-    'Label (Delivery)'n $120. Status $12. ;
-    informat 'Event date'n DATETIME18.;
-    format 'Event date'n DATETIME18.;
-    input 'Account # (Recipient)'n Address  'Event date'n : ?? ANYDTDTM19. 'Label (Delivery)'n Status;
-  run;
+   data email&i;
+   infile "&idata2./EXP42_46_60_DPD_Email_Logs_&pullkey&i..txt" dlm='|' dsd truncover firstobs= 2;
+   length 'Account # (Recipient)'n $120. Address $120.
+          'Label (Delivery)'n $120. Status $12. ;
+   informat 'Event date'n DATETIME18.;
+   format 'Event date'n DATETIME18.;
+   input 'Account # (Recipient)'n Address  'Event date'n : ?? ANYDTDTM19. 'Label (Delivery)'n Status;
+   run;
 %end;
+%mend create_email_datasets;
+
+/* Execute the macro to create datasets */
+%create_email_datasets;

@@ -1,37 +1,19 @@
-/* Create push datasets from 0 to 72 */
-%macro create_push_datasets;
-%do i = 0 %to 72;
-   data push&i;
-   infile "&idata2./EXP42_46_60_DPD_Push_Logs_&pullkey&i..txt" dlm='|' dsd truncover firstobs= 2;
-   length 'Profile ID'n $120.
-          'Account Number'n $120.
-          'Control population'n $1.
-          'Mobile App Label'n $120.
-          'Label'n $120. Status $12. ;
-   informat 'Event date'n DATETIME18.;
-   format 'Event date'n DATETIME18.;
-   input 'Profile ID'n 'Account Number'n 'Event date'n : ?? ANYDTDTM19. 'Control population'n 'Mobile App Label'n Status 'Label'n ;
-   run;
-%end;
-%mend create_push_datasets;
+ERROR: The %DO statement is not valid in open code.
+31            push&i
+WARNING: Apparent symbolic reference I not resolved.
+32         %end;
+ERROR: The %END statement is not valid in open code.
+31            push&i
+                  _
+                  22
+ERROR 22-322: Syntax error, expecting one of the following: a name, a quoted string, (, -, :, ;, CUROBS, END, INDSNAME, KEY, 
+              KEYRESET, KEYS, NOBS, OPEN, POINT, _DATA_, _LAST_, _NULL_.  
 
-/* Execute the macro to create push datasets */
-%create_push_datasets;
+31            push&i
+                  _
+                  200
+ERROR 200-322: The symbol is not recognized and will be ignored.
 
-/* Combine push datasets from 0 to 72 */
-data combined_push;
-set 
-%do i = 0 %to 72;
-   push&i
-%end;
-;
-run;
-
-/* Combine email datasets from 0 to 72 */
-data combined_email;
-set 
-%do i = 0 %to 72;
-   email&i
-%end;
-;
-run;
+33         ;
+ERROR: File WORK.PUSH.DATA does not exist.
+ERROR: File WORK.I.DATA does not exist.

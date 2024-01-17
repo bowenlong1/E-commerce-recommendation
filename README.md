@@ -72,23 +72,14 @@
 %let pullkey70 = 2024_01_16;
 %let pullkey71 = 2024_01_17;
 
-
-/****emails****/
-data email0;
-infile "&idata2./EXP42_46_60_DPD_Email_Logs_&pullkey0..txt" dlm='|' dsd truncover firstobs= 2;
-length 'Account # (Recipient)'n $120. Address $120.
-'Label (Delivery)'n $120. Status $12. ;
-informat 'Event date'n DATETIME18.;
-format 'Event date'n DATETIME18.;
-input 'Account # (Recipient)'n Address  'Event date'n : ?? ANYDTDTM19. 'Label (Delivery)'n Status;
-run;
-
-
-data email1;
-infile "&idata2./EXP42_46_60_DPD_Email_Logs_&pullkey1..txt" dlm='|' dsd truncover firstobs= 2;
-length 'Account # (Recipient)'n $120. Address $120.
-'Label (Delivery)'n $120. Status $12. ;
-informat 'Event date'n DATETIME18.;
-format 'Event date'n DATETIME18.;
-input 'Account # (Recipient)'n Address  'Event date'n : ?? ANYDTDTM19. 'Label (Delivery)'n Status;
-run;
+/* Loop through and create datasets from email0 to email71 */
+%do i = 0 %to 71;
+  data email&i.;
+    infile "&idata2./EXP42_46_60_DPD_Email_Logs_&pullkey&i..txt" dlm='|' dsd truncover firstobs= 2;
+    length 'Account # (Recipient)'n $120. Address $120.
+    'Label (Delivery)'n $120. Status $12. ;
+    informat 'Event date'n DATETIME18.;
+    format 'Event date'n DATETIME18.;
+    input 'Account # (Recipient)'n Address  'Event date'n : ?? ANYDTDTM19. 'Label (Delivery)'n Status;
+  run;
+%end;

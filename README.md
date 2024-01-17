@@ -1,19 +1,15 @@
-ERROR: The %DO statement is not valid in open code.
-31            push&i
-WARNING: Apparent symbolic reference I not resolved.
-32         %end;
-ERROR: The %END statement is not valid in open code.
-31            push&i
-                  _
-                  22
-ERROR 22-322: Syntax error, expecting one of the following: a name, a quoted string, (, -, :, ;, CUROBS, END, INDSNAME, KEY, 
-              KEYRESET, KEYS, NOBS, OPEN, POINT, _DATA_, _LAST_, _NULL_.  
+%macro combine_datasets(prefix, num);
+data combined_&prefix.;
+set 
+%do i = 0 %to &num;
+   &prefix.&i
+%end;
+;
+run;
+%mend;
 
-31            push&i
-                  _
-                  200
-ERROR 200-322: The symbol is not recognized and will be ignored.
+/* Combine push datasets from 0 to 72 */
+%combine_datasets(push, 72);
 
-33         ;
-ERROR: File WORK.PUSH.DATA does not exist.
-ERROR: File WORK.I.DATA does not exist.
+/* Combine email datasets from 0 to 72 */
+%combine_datasets(email, 72);

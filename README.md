@@ -1,15 +1,20 @@
-import pandas as pd
+ParserError: Unknown string format: 23OCT23:13:51:10
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+File /databricks/python/lib/python3.10/site-packages/pandas/core/arrays/datetimes.py:2236, in objects_to_datetime64ns(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)
+   2235 try:
+-> 2236     values, tz_parsed = conversion.datetime_to_datetime64(data.ravel("K"))
+   2237     # If tzaware, these values represent unix timestamps, so we
+   2238     #  return them as i8 to distinguish from wall times
 
-# Assuming 'call0', 'email0', and 'push0' are your DataFrames
+File /databricks/python/lib/python3.10/site-packages/pandas/_libs/tslibs/conversion.pyx:360, in pandas._libs.tslibs.conversion.datetime_to_datetime64()
 
-# Create 'call' DataFrame
-call = call0.groupby(['loan_acct_nbr', 'workload_dt']).agg(sum_call=('oc_call', 'sum')).reset_index()
-call = call[call['sum_call'] > 0]
+TypeError: Unrecognized value type: <class 'str'>
 
-# Create 'email' DataFrame
-email = email0.groupby(['loan_acct_nbr', 'Event date']).size().reset_index(name='sum_email')
-email['workload_dt'] = pd.to_datetime(email['Event date']).dt.strftime('%Y-%m-%d')
+During handling of the above exception, another exception occurred:
 
-# Create 'push' DataFrame
-push = push0.groupby(['loan_acct_nbr', 'Event date']).size().reset_index(name='sum_push')
-push['workload_dt'] = pd.to_datetime(push['Event date']).dt.strftime('%Y-%m-%d')
+ParserError                               Traceback (most recent call last)
+File <command-501241298318756>, line 1
+----> 1 email0['workload_dt'] = pd.to_datetime(email0['event date']).dt.strftime('%Y-%m-%d')
+
+File /databricks/python/lib/python3.10/site-packages/pandas/core/tools/datetimes.py:1047, in to_datetime(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)

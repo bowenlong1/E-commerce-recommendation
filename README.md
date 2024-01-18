@@ -1,13 +1,13 @@
+import pandas as pd
 
-loan_acct_nbr	contact_dt	workload_dt	sum_call
-0	111003687197	2023-12-26	2023-10-25	3.0
-1	111003687197	2023-12-26	2023-10-26	1.0
-2	111003687197	2023-12-26	2023-11-28	2.0
-3	111003687197	2023-12-26	2023-12-04	2.0
-4	111003687197	2023-12-26	2023-12-08	3.0
-...	...	...	...	...
-18955197	111068295586	2023-11-06	2023-11-03	3.0
-18955198	111068295586	2023-11-06	2023-11-04	1.0
-18955199	111068295586	2023-11-06	2023-11-06	3.0
-18955200	111068295586	2023-11-06	2023-11-07	3.0
-18955201	111068295586	2023-11-06	2023-11-08	2.0
+# Assuming merged_df is your DataFrame
+merged_df['workload_dt'] = pd.to_datetime(merged_df['workload_dt'])
+merged_df['contact_dt'] = pd.to_datetime(merged_df['contact_dt'])
+
+result_df = (
+    merged_df.query('workload_dt >= contact_dt and workload_dt <= contact_dt + Timedelta("7 days")')
+    .groupby(['loan_acct_nbr', 'contact_dt'])
+    .agg(sum_call=('sum_call', 'sum'))
+    .reset_index()
+)
+

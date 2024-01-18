@@ -1,78 +1,19 @@
-import pandas as pd
+proc sql;
+create table call as select loan_acct_nbr, workload_dt, sum(oc_call) as sum_call
+from call0
+group by 1,2
+having sum_call>0;
+quit;
 
-# Assuming df is your DataFrame
-df['day_key'] = df['day_key'].astype(str)  # Convert to string for formatting
-df['dt'] = pd.to_datetime(df['day_key'], format='%Y%m%d')
-df['real_dt'] = df['dt'] + pd.DateOffset(days=1)
-df['contact_dt'] = df['real_dt'] + pd.DateOffset(days=1)
-df['contact_dt'] = df['contact_dt'].dt.strftime('%Y-%m-%d')  # Format as 'YYYY-MM-DD'
 
-# Now df contains the new columns 'dt', 'real_dt', and 'contact_dt'
+proc sql;
+create table email as select loan_acct_nbr, datepart("Event date"n) as workload_dt format date9., count(*) as sum_email
+from email0
+group by 1,2;
+quit;
 
-import pandas as pd
-
-# Assuming you already have DataFrame 'df1', 'call', 'email', 'push'
-# ...
-
-# Create DataFrame 'dist_acct'
-dist_acct = df1[['loan_acct_nbr', 'contact_dt']].drop_duplicates()
-
-# Calculate 'call7' in 'dist_acct'
-dist_acct['call7'] = (
-    df1.merge(call, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])['oc_call']
-    .sum()
-    .fillna(0)
-    .astype(int)
-)
-
-# Calculate 'email7' in 'dist_acct'
-dist_acct['email7'] = (
-    df1.merge(email, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])['sum_email']
-    .sum()
-    .fillna(0)
-    .astype(int)
-)
-
-# Calculate 'push7' in 'dist_acct'
-dist_acct['push7'] = (
-    df1.merge(push, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])['sum_push']
-    .sum()
-    .fillna(0)
-    .astype(int)
-)
-
-# Calculate 'bcall7', 'bemail7', 'bpush7' in 'dist_acct'
-dist_acct['bcall7'] = (
-    df1.merge(call, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])
-    .size()
-    .fillna(0)
-    .astype(int)
-)
-
-dist_acct['bemail7'] = (
-    df1.merge(email, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])
-    .size()
-    .fillna(0)
-    .astype(int)
-)
-
-dist_acct['bpush7'] = (
-    df1.merge(push, how='left', left_on=['loan_acct_nbr'], right_on=['loan_acct_nbr'])
-    .query('workload_dt >= contact_dt and workload_dt <= contact_dt + 7')
-    .groupby(['loan_acct_nbr', 'contact_dt'])
-    .size()
-    .fillna(0)
-    .astype(int)
-)
-![Uploading image.png…]()
-
+proc sql;
+create table push as select loan_acct_nbr, datepart("Event date"n) as workload_dt format date9., count(*) as sum_push
+from push0
+group by 1,2;
+quit;

@@ -1,5 +1,5 @@
 import pandas as pd
-from scipy.stats import ttest_ind
+from statsmodels.stats.proportion import proportions_ztest
 
 # Assuming your grouped DataFrame is named grouped_df
 # If not, replace grouped_df with your DataFrame's actual name
@@ -20,13 +20,14 @@ control_row = grouped_df[grouped_df['exp_grp'] == 'control']
 
 # Compare each exp_grp with control regarding the pay_rate and each pay_grp
 for exp_grp in grouped_df['exp_grp'].unique():
-    if exp_grp == 'control':
-        continue
-
     exp_grp_row = grouped_df[grouped_df['exp_grp'] == exp_grp]
 
-    # Perform t-test for pay_rate
-    t_stat, p_value = ttest_ind(control_row['avg_pay_rate'], exp_grp_row['avg_pay_rate'])
+    # Perform two-proportion z-test for pay_rate
+    count = [control_row['count'].values[0], exp_grp_row['count'].values[0]]
+    success = [control_row['count'].values[0] * control_row['avg_pay_rate'].values[0],
+               exp_grp_row['count'].values[0] * exp_grp_row['avg_pay_rate'].values[0]]
+    
+    z_stat, p_value = proportions_ztest(success, count)
 
     # Determine statistical significance
     if p_value < 0.05:
@@ -49,6 +50,10 @@ for exp_grp in grouped_df['exp_grp'].unique():
 # Pivot table for statistical significance
 significance_table = significance_df.pivot_table(index=['group'], columns=['pay_grp'], values=['count', 'avg_pay_rate', 'statistically_significant'])
 significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
+
+# Add a row for control group above test0, test1, test2
+control_row = significance_table.loc[['control']]
+significance_table = pd.concat([control_row, significance_table])
 
 print(avg_table)
 print(significance_table)

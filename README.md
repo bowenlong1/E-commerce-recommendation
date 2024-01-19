@@ -1,8 +1,19 @@
+import pandas as pd
+from scipy.stats import ttest_ind
 
-pay_grp	high	low	med
-avg_calls	avg_emails	avg_pushes	avg_calls	avg_emails	avg_pushes	avg_calls	avg_emails	avg_pushes
-exp_grp									
-control	11.209179	0.000000	0.000000	16.448710	0.000000	0.000000	13.701902	0.000000	0.000000
-test0	11.069047	0.000000	0.000000	15.589490	0.000000	0.000000	13.641742	0.000000	0.000000
-test1	9.482924	0.027611	0.091309	15.124969	0.042960	0.161088	12.263541	0.033327	0.107267
-test2	10.615848	0.044168	0.147520	14.610165	0.068176	0.251094	12.824518	0.080713	0.285374
+# Assuming your grouped DataFrame is named grouped_df
+# If not, replace grouped_df with your DataFrame's actual name
+
+# Define the order for pay_grp
+pay_grp_order = ['low', 'med', 'high']
+
+# Pivot table for averages
+avg_table = pd.pivot_table(grouped_df, index=['exp_grp'], columns=['pay_grp'], values=['avg_calls', 'avg_emails', 'avg_pushes'], aggfunc='mean')
+
+# Reorder columns
+avg_table = avg_table[['avg_calls', 'avg_emails', 'avg_pushes']].reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
+avg_table = avg_table[pay_grp_order]
+
+# Display the modified table
+print(avg_table)
+

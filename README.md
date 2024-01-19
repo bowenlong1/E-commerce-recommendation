@@ -5,12 +5,12 @@ from scipy.stats import ttest_ind
 # If not, replace grouped_df with your DataFrame's actual name
 
 # Define the order for pay_grp
-pay_grp_order = ['low', 'med', 'high']
+pay_grp_order = ['high', 'med', 'low']
 
 # Pivot table for averages
 avg_table = pd.pivot_table(grouped_df, index=['exp_grp'], columns=['pay_grp'], values=['avg_calls', 'avg_emails', 'avg_pushes'], aggfunc='mean')
-#avg_table = avg_table[['avg_calls', 'avg_emails', 'avg_pushes']].reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
-#avg_table = avg_table[pay_grp_order]
+avg_table = avg_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
+avg_table = avg_table[['avg_calls', 'avg_emails', 'avg_pushes']]  # Move averages to the top
 
 # Create a new DataFrame for statistical significance
 significance_df = pd.DataFrame(columns=['group', 'pay_grp', 'count', 'avg_pay_rate', 'statistically_significant'])
@@ -50,10 +50,5 @@ for exp_grp in grouped_df['exp_grp'].unique():
 significance_table = significance_df.pivot_table(index=['group'], columns=['pay_grp'], values=['count', 'avg_pay_rate', 'statistically_significant'])
 significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
 
-avg_calls	avg_emails	avg_pushes
-pay_grp	high	low	med	high	low	med	high	low	med
-exp_grp									
-control	7.279164	9.240990	8.270158	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
-test0	6.900409	8.289748	7.775796	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
-test1	5.940487	8.251649	7.138547	0.026802	0.041738	0.032057	0.087440	0.154043	0.101699
-test2	6.537805	7.540516	7.236798	0.042476	0.054764	0.070234	0.139201	0.195933	0.243907
+print(avg_table)
+print(significance_table)

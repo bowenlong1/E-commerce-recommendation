@@ -20,6 +20,9 @@ control_row = grouped_df[grouped_df['exp_grp'] == 'control']
 
 # Compare each exp_grp with control regarding the pay_rate and each pay_grp
 for exp_grp in grouped_df['exp_grp'].unique():
+    if exp_grp == 'control':
+        continue
+
     exp_grp_row = grouped_df[grouped_df['exp_grp'] == exp_grp]
 
     # Perform two-proportion z-test for pay_rate
@@ -52,8 +55,13 @@ significance_table = significance_df.pivot_table(index=['group'], columns=['pay_
 significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
 
 # Add a row for control group above test0, test1, test2
-control_row = significance_table.loc[['control']]
+control_row = significance_table.loc[['control']].iloc[0]
 significance_table = pd.concat([control_row, significance_table])
+
+# Add a column for statistical significance with control
+significance_table[('statistically_significant', 'control vs test0')] = 'N/A'
+significance_table[('statistically_significant', 'control vs test1')] = 'N/A'
+significance_table[('statistically_significant', 'control vs test2')] = 'N/A'
 
 print(avg_table)
 print(significance_table)

@@ -1,6 +1,11 @@
-loan_acct_nbr	contact_dt	dpd	pay_grp	equ_grp	exp_grp	result
-0	111003687197	2023-12-26	47	low	low	test0	1
-1	111013074985	2023-12-13	47	high	high	control	1
-2	111013201347	2023-12-28	53	high	low	test1	1
-3	111014889856	2023-12-05	59	high	low	test0	0
-4	111016007502	2023-11-18	51	low	low	test0	1
+# Merge dist_acct with call_df, email_df, and push_df
+dist_acct = dist_acct.merge(call_df, how='left', on=['loan_acct_nbr', 'contact_dt'])
+dist_acct = dist_acct.merge(email_df, how='left', on=['loan_acct_nbr', 'contact_dt'])
+dist_acct = dist_acct.merge(push_df, how='left', on=['loan_acct_nbr', 'contact_dt'])
+
+# Fill NaN values with 0 for columns sum_call, sum_email, sum_push
+dist_acct[['sum_call', 'sum_email', 'sum_push']] = dist_acct[['sum_call', 'sum_email', 'sum_push']].fillna(0)
+
+# If you want to drop temporary columns like contact_dt_plus_7, you can do so
+# dist_acct.drop(columns=['contact_dt_plus_7'], inplace=True)
+

@@ -14,6 +14,9 @@ avg_table = avg_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
 # Create a new DataFrame for statistical significance
 significance_df = pd.DataFrame(columns=['group', 'pay_grp', 'count', 'avg_pay_rate', 'statistically_significant'])
 
+# Define the control group
+control_row = grouped_df[grouped_df['exp_grp'] == 'control']
+
 # Compare each exp_grp with control regarding the pay_rate and each pay_grp
 for exp_grp in grouped_df['exp_grp'].unique():
     if exp_grp == 'control':
@@ -45,16 +48,3 @@ for exp_grp in grouped_df['exp_grp'].unique():
 # Pivot table for statistical significance
 significance_table = significance_df.pivot_table(index=['group'], columns=['pay_grp'], values=['count', 'avg_pay_rate', 'statistically_significant'])
 significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
-
-
-NameError: name 'control_row' is not defined
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-File <command-501241298327076>, line 25
-     22 exp_grp_row = grouped_df[grouped_df['exp_grp'] == exp_grp]
-     24 # Perform t-test for pay_rate
----> 25 t_stat, p_value = ttest_ind(control_row['avg_pay_rate'], exp_grp_row['avg_pay_rate'])
-     27 # Determine statistical significance
-     28 if p_value < 0.05:
-
-NameError: name 'control_row' is not defined

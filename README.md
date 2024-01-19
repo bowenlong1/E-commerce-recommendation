@@ -1,67 +1,20 @@
-import pandas as pd
-from statsmodels.stats.proportion import proportions_ztest
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+File <command-501241298327030>, line 58
+     55 significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
+     57 # Add a row for control group above test0, test1, test2
+---> 58 control_row = significance_table.loc[['control']].iloc[0]
+     59 significance_table = pd.concat([control_row, significance_table])
+     61 # Add a column for statistical significance with control
 
-# Assuming your grouped DataFrame is named grouped_df
-# If not, replace grouped_df with your DataFrame's actual name
+File /databricks/python/lib/python3.10/site-packages/pandas/core/indexing.py:967, in _LocationIndexer.__getitem__(self, key)
+    964 axis = self.axis or 0
+    966 maybe_callable = com.apply_if_callable(key, self.obj)
+--> 967 return self._getitem_axis(maybe_callable, axis=axis)
 
-# Define the order for pay_grp
-pay_grp_order = ['high', 'med', 'low']
-
-# Pivot table for averages
-avg_table = pd.pivot_table(grouped_df, index=['exp_grp'], columns=['pay_grp'], values=['avg_calls', 'avg_emails', 'avg_pushes'], aggfunc='mean')
-avg_table = avg_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
-avg_table = avg_table[['avg_calls', 'avg_emails', 'avg_pushes']]  # Move averages to the top
-
-# Create a new DataFrame for statistical significance
-significance_df = pd.DataFrame(columns=['group', 'pay_grp', 'count', 'avg_pay_rate', 'statistically_significant'])
-
-# Define the control group
-control_row = grouped_df[grouped_df['exp_grp'] == 'control']
-
-# Compare each exp_grp with control regarding the pay_rate and each pay_grp
-for exp_grp in grouped_df['exp_grp'].unique():
-    if exp_grp == 'control':
-        continue
-
-    exp_grp_row = grouped_df[grouped_df['exp_grp'] == exp_grp]
-
-    # Perform two-proportion z-test for pay_rate
-    count = [control_row['count'].values[0], exp_grp_row['count'].values[0]]
-    success = [control_row['count'].values[0] * control_row['avg_pay_rate'].values[0],
-               exp_grp_row['count'].values[0] * exp_grp_row['avg_pay_rate'].values[0]]
-    
-    z_stat, p_value = proportions_ztest(success, count)
-
-    # Determine statistical significance
-    if p_value < 0.05:
-        statistically_significant = 'Yes'
-    else:
-        statistically_significant = 'No'
-
-    # Append to the significance_df for each pay_grp
-    for pay_grp in pay_grp_order:
-        pay_grp_row = exp_grp_row[exp_grp_row['pay_grp'] == pay_grp]
-
-        significance_df = significance_df.append({
-            'group': exp_grp,
-            'pay_grp': pay_grp,
-            'count': pay_grp_row['count'].values[0],
-            'avg_pay_rate': pay_grp_row['avg_pay_rate'].values[0],
-            'statistically_significant': statistically_significant
-        }, ignore_index=True)
-
-# Pivot table for statistical significance
-significance_table = significance_df.pivot_table(index=['group'], columns=['pay_grp'], values=['count', 'avg_pay_rate', 'statistically_significant'])
-significance_table = significance_table.reorder_levels([1, 0], axis=1).sort_index(axis=1, level=0)
-
-# Add a row for control group above test0, test1, test2
-control_row = significance_table.loc[['control']].iloc[0]
-significance_table = pd.concat([control_row, significance_table])
-
-# Add a column for statistical significance with control
-significance_table[('statistically_significant', 'control vs test0')] = 'N/A'
-significance_table[('statistically_significant', 'control vs test1')] = 'N/A'
-significance_table[('statistically_significant', 'control vs test2')] = 'N/A'
-
-print(avg_table)
-print(significance_table)
+File /databricks/python/lib/python3.10/site-packages/pandas/core/indexing.py:1194, in _LocIndexer._getitem_axis(self, key, axis)
+   1191     if hasattr(key, "ndim") and key.ndim > 1:
+   1192         raise ValueError("Cannot index with multidimensional key")
+-> 1194     return self._getitem_iterable(key, axis=axis)
+   1196 # nested tuple slicing
+   1197 if is_nested_tuple(key, labels):

@@ -177,5 +177,74 @@ proc sql;
     left join all_dpd b53 on a.loan_acct_nbr = b53.loan_acct_nbr and a.dt+53 = b53.dt
     left join all_dpd b54 on a.loan_acct_nbr = b54.loan_acct_nbr and a.dt+54 = b54.dt
     left join all_dpd b55 on a.loan_acct_nbr = b55.loan_acct_nbr and a.dt+55 = b55.dt
-    left join all_dpd b56 on a.loan_acct_nbr = b56.
+    left join all_dpd b56 on a.loan_acct_nbr = b56.loan_acct_nbr and a.dt+56=b56.dt
+	left join all_dpd b57 on a.loan_acct_nbr = b57.loan_acct_nbr and a.dt +57=b57.dt
+	left join all_dpd b58 on a.loan_acct_nbr = b58.loan_acct_nbr and a.dt +58=b58.dt
+	left join all_dpd b59 on a.loan_acct_nbr = b59.loan_acct_nbr and a.dt +59=b59.dt
+	left join all_dpd b60 on a.loan_acct_nbr = b60.loan_acct_nbr and a.dt +60=b60.dt
+	left join all_dpd b61 on a.loan_acct_nbr = b61.loan_acct_nbr and a.dt +61=b61.dt
+	left join all_dpd b62 on a.loan_acct_nbr = b62.loan_acct_nbr and a.dt +62=b62.dt
+	left join all_dpd b63 on a.loan_acct_nbr = b63.loan_acct_nbr and a.dt +63=b63.dt
+	left join all_dpd b64 on a.loan_acct_nbr = b64.loan_acct_nbr and a.dt +64=b64.dt
+	left join all_dpd b65 on a.loan_acct_nbr = b65.loan_acct_nbr and a.dt +65=b65.dt
+	left join all_dpd b66 on a.loan_acct_nbr = b66.loan_acct_nbr and a.dt +66=b66.dt
+	left join all_dpd b67 on a.loan_acct_nbr = b67.loan_acct_nbr and a.dt +67=b67.dt
+	left join all_dpd b68 on a.loan_acct_nbr = b68.loan_acct_nbr and a.dt +68=b68.dt
+	left join all_dpd b69 on a.loan_acct_nbr = b69.loan_acct_nbr and a.dt +69=b69.dt
+	left join all_dpd b70 on a.loan_acct_nbr = b70.loan_acct_nbr and a.dt +70=b70.dt
+	left join all_dpd b71 on a.loan_acct_nbr = b71.loan_acct_nbr and a.dt +71=b71.dt
+	left join all_dpd b72 on a.loan_acct_nbr = b72.loan_acct_nbr and a.dt +72=b72.dt
+	left join all_dpd b73 on a.loan_acct_nbr = b73.loan_acct_nbr and a.dt +73=b73.dt
+	left join all_dpd b74 on a.loan_acct_nbr = b74.loan_acct_nbr and a.dt +74=b74.dt
+	left join all_dpd b75 on a.loan_acct_nbr = b75.loan_acct_nbr and a.dt +75=b75.dt
+	left join all_dpd b76 on a.loan_acct_nbr = b76.loan_acct_nbr and a.dt +76=b76.dt
+	left join all_dpd b77 on a.loan_acct_nbr = b77.loan_acct_nbr and a.dt +77=b77.dt
+	left join all_dpd b78 on a.loan_acct_nbr = b78.loan_acct_nbr and a.dt +78=b78.dt
+	left join all_dpd b79 on a.loan_acct_nbr = b79.loan_acct_nbr and a.dt +79=b79.dt
+	left join all_dpd b80 on a.loan_acct_nbr = b80.loan_acct_nbr and a.dt +80=b80.dt
+	left join all_dpd b81 on a.loan_acct_nbr = b81.loan_acct_nbr and a.dt +81=b81.dt
+	left join all_dpd b82 on a.loan_acct_nbr = b82.loan_acct_nbr and a.dt +82=b82.dt
+	left join all_dpd b83 on a.loan_acct_nbr = b83.loan_acct_nbr and a.dt +83=b83.dt
+	left join all_dpd b84 on a.loan_acct_nbr = b84.loan_acct_nbr and a.dt +84=b84.dt
+	left join all_dpd b85 on a.loan_acct_nbr = b85.loan_acct_nbr and a.dt +85=b85.dt
+	left join all_dpd b86 on a.loan_acct_nbr = b86.loan_acct_nbr and a.dt +86=b86.dt
+	left join all_dpd b87 on a.loan_acct_nbr = b87.loan_acct_nbr and a.dt +87=b87.dt
+	left join all_dpd b88 on a.loan_acct_nbr = b88.loan_acct_nbr and a.dt +88=b88.dt
+	left join all_dpd b89 on a.loan_acct_nbr = b89.loan_acct_nbr and a.dt +89=b89.dt
+	left join all_dpd b90 on a.loan_acct_nbr = b90.loan_acct_nbr and a.dt +90=b90.dt
+	left join all_dpd b91 on a.loan_acct_nbr = b91.loan_acct_nbr and a.dt +91=b91.dt
+	left join all_dpd b92 on a.loan_acct_nbr = b92.loan_acct_nbr and a.dt +92=b92.dt
+	left join all_dpd b93 on a.loan_acct_nbr = b93.loan_acct_nbr and a.dt +93=b93.dt
+	left join all_dpd b94 on a.loan_acct_nbr = b94.loan_acct_nbr and a.dt +94=b94.dt
+	left join all_dpd b95 on a.loan_acct_nbr = b95.loan_acct_nbr and a.dt +95=b95.dt
+	left join all_dpd b96 on a.loan_acct_nbr = b96.loan_acct_nbr and a.dt +96=b96.dt
+	left join all_dpd b97 on a.loan_acct_nbr = b97.loan_acct_nbr and a.dt +97=b97.dt
+	left join all_dpd b98 on a.loan_acct_nbr = b98.loan_acct_nbr and a.dt +98=b98.dt
+	left join all_dpd b99 on a.loan_acct_nbr = b99.loan_acct_nbr and a.dt +99=b99.dt
+	left join all_dpd b100 on a.loan_acct_nbr = b100.loan_acct_nbr and a.dt +100=b100.dt
+	left join all_dpd b101 on a.loan_acct_nbr = b101.loan_acct_nbr and a.dt +101=b101.dt
+	left join all_dpd b102 on a.loan_acct_nbr = b102.loan_acct_nbr and a.dt +102=b102.dt
+	left join all_dpd b103 on a.loan_acct_nbr = b103.loan_acct_nbr and a.dt +103=b103.dt
+	left join all_dpd b104 on a.loan_acct_nbr = b104.loan_acct_nbr and a.dt +104=b104.dt
+	left join all_dpd b105 on a.loan_acct_nbr = b105.loan_acct_nbr and a.dt +105=b105.dt
+	left join all_dpd b106 on a.loan_acct_nbr = b106.loan_acct_nbr and a.dt +106=b106.dt
+	left join all_dpd b107 on a.loan_acct_nbr = b107.loan_acct_nbr and a.dt +107=b107.dt
+	left join all_dpd b108 on a.loan_acct_nbr = b108.loan_acct_nbr and a.dt +108=b108.dt
+	left join all_dpd b109 on a.loan_acct_nbr = b109.loan_acct_nbr and a.dt +109=b109.dt
+	left join all_dpd b110 on a.loan_acct_nbr = b110.loan_acct_nbr and a.dt +110=b110.dt
+	left join all_dpd b111 on a.loan_acct_nbr = b111.loan_acct_nbr and a.dt +111=b111.dt
+	left join all_dpd b112 on a.loan_acct_nbr = b112.loan_acct_nbr and a.dt +112=b112.dt
+	left join all_dpd b113 on a.loan_acct_nbr = b113.loan_acct_nbr and a.dt +113=b113.dt
+	left join all_dpd b114 on a.loan_acct_nbr = b114.loan_acct_nbr and a.dt +114=b114.dt
+	left join all_dpd b115 on a.loan_acct_nbr = b115.loan_acct_nbr and a.dt +115=b115.dt
+	left join all_dpd b116 on a.loan_acct_nbr = b116.loan_acct_nbr and a.dt +116=b116.dt
+	left join all_dpd b117 on a.loan_acct_nbr = b117.loan_acct_nbr and a.dt +117=b117.dt
+	left join all_dpd b118 on a.loan_acct_nbr = b118.loan_acct_nbr and a.dt +118=b118.dt
+	left join all_dpd b119 on a.loan_acct_nbr = b119.loan_acct_nbr and a.dt +119=b119.dt
+	left join all_dpd b120 on a.loan_acct_nbr = b120.loan_acct_nbr and a.dt +120=b120.dt;
+	quit;
 
+
+data ic.acct2;
+set acct2;
+run;

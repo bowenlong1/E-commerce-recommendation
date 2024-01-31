@@ -1,1 +1,1 @@
-
+Attached is the file Dalton shared with us for QA testing, based on this file, we were able to generate a routing summary table below. It would be great If Dalton could share with same fie everyday for production checks. Otherwise, we need to send Dalton all the accounts with unexpected routing and he manually check for us like we did for experiment.

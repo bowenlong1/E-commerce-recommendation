@@ -1,3 +1,4 @@
-Hey Sebastian,
+Yes for this deployment, we just deploy an existing treatment from iteration 1 to larger portfolio. Attached are the daily files format we need from adobe side just like we did in the first iteration.
 
-I heard from Nivedita that you're going to study for a PhD degree at Wayne State. Congratulations, man, and good luck! Let me know if there's anything I can help with regarding your PhD studies. 😊
+Please let me know if you have any questions.
+

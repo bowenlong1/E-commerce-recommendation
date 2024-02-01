@@ -1,1 +1,1 @@
-
+Hey, good morning Yesenia! I hope everything is going great with you. I recently learned that we have changed law firms for the upcoming H1B lotteries. Since Aimee was still assisting me with the PERM process, I wanted to check if there are any changes regarding my point of contact?

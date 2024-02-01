@@ -1,1 +1,3 @@
-Hey, good morning Yesenia! I hope everything is going great with you. I recently learned that we have changed law firms for the upcoming H1B lotteries. Since Aimee was still assisting me with the PERM process, I wanted to check if there are any changes regarding my point of contact?
+Hey Sebastian,
+
+I heard from Nivedita that you're going to study for a PhD degree at Wayne State. Congratulations, man, and good luck! Let me know if there's anything I can help with regarding your PhD studies. 😊

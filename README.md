@@ -1,1 +1,1 @@
-
+Thanks for looking into it. For EOT experiment, all accounts will be from terminated lease portfolio, and we also added some other criteria to select the experiment portfolio. So eventough these 90 accounts are not 100% will become our experiment portfolio but as long as they are from terminated lease they have a chance to be included.

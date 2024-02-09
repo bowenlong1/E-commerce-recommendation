@@ -1,3 +1,3 @@
-Center Chandler and Center San Antonio have parallel trend of cure rate before deployment, so we chose these two centers for comparison
-![Uploading image.png…]()
+
+The Chandler and San Antonio centers exhibit similar trends in cure rates prior to deployment. Therefore, we selected these two centers for comparison.
 

@@ -4,6 +4,14 @@ proc rank data=port2 groups=3 out=port2_ranked;
    ranks dpd_3week_rank since_last_pmt_day_rank days_to_next_pmt_rank;
 run;
 
+/* Add 1 to each rank to start from 1 instead of 0 */
+data port2_ranked;
+   set port2_ranked;
+   dpd_3week_rank + 1;
+   since_last_pmt_day_rank + 1;
+   days_to_next_pmt_rank + 1;
+run;
+
 /* Create f1_group column with quantile combinations */
 data port2_ranked;
    set port2_ranked;
@@ -17,4 +25,3 @@ data port2_ranked;
    else if f1_group in ('dpd1-last3-next3', 'dpd1-last3-next2', 'dpd2-last3-next2', 'dpd2-last1-next2', 'dpd2-last3-next1', 'dpd1-last1-next2', 'dpd3-last3-next1', 'dpd1-last1-next3', 'dpd2-last2-next2', 'dpd1-last2-next2', 'dpd1-last2-next3') then f1 = 'F2';
    else if f1_group in ('dpd1-last1-next1', 'dpd2-last1-next1', 'dpd2-last2-next1', 'dpd1-last3-next1', 'dpd1-last2-next1', 'dpd3-last2-next1', 'dpd2-last3-next3', 'dpd2-last2-next3') then f1 = 'F3';
 run;
-

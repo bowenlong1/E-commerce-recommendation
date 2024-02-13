@@ -1,25 +1,39 @@
-Mean of empty slice.
-invalid value encountered in double_scalars
-F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
-ValueError: Found array with 0 sample(s) (shape=(0,)) while a minimum of 1 is required.
----------------------------------------------------------------------------
-ValueError                                Traceback (most recent call last)
-File <command-425309581679927>, line 31
-     29 accuracy = accuracy_score(filtered_df['result'], filtered_df['pred'])
-     30 f1 = f1_score(filtered_df['result'], filtered_df['pred'])
----> 31 roc_auc = roc_auc_score(filtered_df['result'], filtered_df['pred'])
-     33 # Store the metrics
-     34 metrics_by_variable.append({
-     35     'Variable': var,
-     36     'Quantile': bucket,
-   (...)
-     39     'ROC-AUC': roc_auc
-     40 })
+The error you're encountering suggests that the `roc_auc_score` function is encountering empty arrays or arrays with zero samples, which leads to division by zero errors and ill-defined F1 scores. This typically happens when there are no positive or negative samples in the data for a particular quantile.
 
-File /databricks/python/lib/python3.10/site-packages/mlflow/utils/autologging_utils/safety.py:552, in safe_patch.<locals>.safe_patch_function(*args, **kwargs)
-    550     patch_function.call(call_original, *args, **kwargs)
-    551 else:
---> 552     patch_function(call_original, *args, **kwargs)
-    554 session.state = "succeeded"
-    556 try_log_autologging_event(
-    557     AutologgingEventLogger.get_logger().log_patch_function_success,
+To address this issue, you can add a check to ensure that there are samples in the data before computing the metrics. Here's how you can modify the code:
+
+```python
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+import numpy as np
+
+# Iterate over each continuous variable
+for var in continuous_variables:
+    # Filter the DataFrame for the current variable
+    var_df = acct[acct[var].notnull()]
+    
+    # Compute quantiles
+    quantiles = pd.qcut(var_df[var], q=4, labels=False, duplicates='drop')
+    
+    # Iterate over each quantile
+    for quantile in range(4):
+        # Filter the DataFrame for the current quantile
+        quantile_df = var_df[quantiles == quantile]
+        
+        # Check if there are samples in the DataFrame
+        if len(quantile_df) > 0:
+            # Compute metrics
+            accuracy = accuracy_score(quantile_df['result'], quantile_df['pred'])
+            f1 = f1_score(quantile_df['result'], quantile_df['pred'])
+            roc_auc = roc_auc_score(quantile_df['result'], quantile_df['pred'])
+            
+            # Store the metrics
+            metrics_by_variable.append({
+                'Variable': var,
+                'Quantile': quantile,
+                'Accuracy': accuracy,
+                'F1 Score': f1,
+                'ROC-AUC': roc_auc
+            })
+```
+
+This modification ensures that the metrics are computed only if there are samples in the DataFrame for the current quantile, thus avoiding the division by zero errors and ill-defined F1 scores.

@@ -1,39 +1,55 @@
-The error you're encountering suggests that the `roc_auc_score` function is encountering empty arrays or arrays with zero samples, which leads to division by zero errors and ill-defined F1 scores. This typically happens when there are no positive or negative samples in the data for a particular quantile.
+from itertools import product
 
-To address this issue, you can add a check to ensure that there are samples in the data before computing the metrics. Here's how you can modify the code:
+# Create quantiles for each variable
+acct['dpd_3week_quantile'] = pd.qcut(acct['dpd_3week'], q=3, labels=False, duplicates='drop')
+acct['since_last_pmt_day_qty_quantile'] = pd.qcut(acct['since_last_pmt_day_qty'], q=3, labels=False, duplicates='drop')
+acct['days_to_next_pmt_quantile'] = pd.qcut(acct['days_to_next_pmt'], q=3, labels=False, duplicates='drop')
 
-```python
-from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
-import numpy as np
+# Generate combinations of quantiles
+quantile_combinations = list(product(range(3), repeat=3))
 
-# Iterate over each continuous variable
-for var in continuous_variables:
-    # Filter the DataFrame for the current variable
-    var_df = acct[acct[var].notnull()]
+# Initialize a list to store metrics
+metrics_by_group = []
+
+# Iterate over each quantile combination
+for idx, quantile_combo in enumerate(quantile_combinations):
+    # Filter the DataFrame for the current quantile combination
+    filtered_df = acct[
+        (acct['dpd_3week_quantile'] == quantile_combo[0]) &
+        (acct['since_last_pmt_day_qty_quantile'] == quantile_combo[1]) &
+        (acct['days_to_next_pmt_quantile'] == quantile_combo[2])
+    ]
     
-    # Compute quantiles
-    quantiles = pd.qcut(var_df[var], q=4, labels=False, duplicates='drop')
-    
-    # Iterate over each quantile
-    for quantile in range(4):
-        # Filter the DataFrame for the current quantile
-        quantile_df = var_df[quantiles == quantile]
+    # Check if there are samples in the DataFrame
+    if len(filtered_df) > 0:
+        # Compute metrics
+        accuracy = accuracy_score(filtered_df['result'], filtered_df['pred'])
+        f1 = f1_score(filtered_df['result'], filtered_df['pred'])
+        roc_auc = roc_auc_score(filtered_df['result'], filtered_df['pred'])
         
-        # Check if there are samples in the DataFrame
-        if len(quantile_df) > 0:
-            # Compute metrics
-            accuracy = accuracy_score(quantile_df['result'], quantile_df['pred'])
-            f1 = f1_score(quantile_df['result'], quantile_df['pred'])
-            roc_auc = roc_auc_score(quantile_df['result'], quantile_df['pred'])
-            
-            # Store the metrics
-            metrics_by_variable.append({
-                'Variable': var,
-                'Quantile': quantile,
-                'Accuracy': accuracy,
-                'F1 Score': f1,
-                'ROC-AUC': roc_auc
-            })
-```
+        # Create a string to indicate the group
+        group_indicator = '-'.join(['dpd{}'.format(quantile_combo[0] + 1),
+                                    'last{}'.format(quantile_combo[1] + 1),
+                                    'next{}'.format(quantile_combo[2] + 1)])
+        
+        # Store the metrics
+        metrics_by_group.append({
+            'Group': group_indicator,
+            'Accuracy': accuracy,
+            'F1 Score': f1,
+            'ROC-AUC': roc_auc
+        })
 
-This modification ensures that the metrics are computed only if there are samples in the DataFrame for the current quantile, thus avoiding the division by zero errors and ill-defined F1 scores.
+# Create a DataFrame from the metrics
+metrics_df = pd.DataFrame(metrics_by_group)
+
+# Sort the DataFrame by decreasing F1 score
+metrics_df = metrics_df.sort_values(by='F1 Score', ascending=False)
+
+# Create a plot
+plt.figure(figsize=(10, 6))
+sns.barplot(x='F1 Score', y='Group', data=metrics_df, palette='viridis')
+plt.xlabel('F1 Score')
+plt.ylabel('Group')
+plt.title('F1 Score by Group')
+plt.show()

@@ -1,15 +1,18 @@
-
 Hi Iris,
-It was really nice to have second mentoring session with you. Thank you for sharing the great suggesions on guiding and work the junior analyst in my team, that’s was really helpful. As we discussed, for this new session, I scheduled a little bit earlier to be this Friday to catch up our interview discussions. Here's a list of questions I've prepared for our discussion:
- 
-•              Tell me about a time when you were given a substantial workload with a tight deadline, and how you managed your tasks effectively.
-•              Share with me a significant professional setback you've encountered and how you navigated through it.
-•              Tell me about a time when you had to change direction midway through a project based on receiving or finding new information.
-•              Reflect on a time when you found yourself in disagreement with your manager on a matter crucial to the business.
-•              Tell me about a time when you received critical feedback from someone.
-Tell me about a time when you made an important business decision without consulting your manager
 
-Please let me know if you have any questions Looking forward to our discussion and learning from your experiences.
+I hope this message finds you well. I wanted to express my gratitude for our recent mentoring session. Your insights and suggestions on guiding and mentoring the junior analysts in our team were truly valuable.
 
-Thanks,
+As we discussed, I've scheduled our next session a bit earlier for this Friday to continue our discussion on interview topics. Below, you'll find a list of questions I've prepared for us to delve into:
+
+Can you share a time when you were faced with a substantial workload and tight deadline? How did you effectively manage your tasks during that period?
+Reflect on a significant professional setback you've encountered and how you navigated through it.
+Describe a situation where you had to pivot midway through a project based on receiving new information.
+Have you ever found yourself in disagreement with your manager on a crucial matter? How did you handle the situation?
+Tell me about a time when you received critical feedback from someone.
+Can you recall a time when you made an important business decision without consulting your manager?
+Please feel free to reach out if you have any questions or topics you'd like to discuss during our session. I'm looking forward to our conversation and learning from your experiences.
+
+Thanks again for your time and insights.
+
+Best regards,
 Bowen

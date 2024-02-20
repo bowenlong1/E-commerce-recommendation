@@ -7,6 +7,7 @@ It was really nice to have second mentoring session with you. Thank you for shar
 •              Tell me about a time when you had to change direction midway through a project based on receiving or finding new information.
 •              Reflect on a time when you found yourself in disagreement with your manager on a matter crucial to the business.
 •              Tell me about a time when you received critical feedback from someone.
+Tell me about a time when you made an important business decision without consulting your manager
 
 Please let me know if you have any questions Looking forward to our discussion and learning from your experiences.
 

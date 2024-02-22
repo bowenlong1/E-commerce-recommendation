@@ -1,1 +1,1 @@
-
+Good morning Iris! Thanks again for the last mentoring sessoin, per our conversation, I set up a meeting tmrw for the next session, does that time work you? please let me know if you have any questions.

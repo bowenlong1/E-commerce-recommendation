@@ -1,1 +1,1 @@
-
+I got your contact from Derek. I want to confirm the access with you for the VOC_RESPONSE_DATA table under SANDBOX_MKTG_ANALYTC schema. I need this table for our weekly customer360 dataset process, seems that I lost the access in the last run, could you please check and help me with the access? Thanks!

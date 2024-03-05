@@ -1,8 +1,11 @@
 Hi Wei,
 
-I am doing well. Glad to hear from you! I am more than happy to receive the survey link and respond. 
+I hope this message finds you well. It's great to hear from you! I'm doing well, thank you.
 
-Feel free to let me know if you have any questions or need anything else.
+I'd be more than happy to receive the survey link and provide my feedback.
 
-Thanks,
+Please feel free to reach out if you have any questions or if there's anything else you need assistance with.
+
+Thanks so much,
+
 Bowen

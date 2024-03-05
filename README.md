@@ -1,8 +1,8 @@
-# Original DataFrame
-original_columns = ['acct_nbr', 'day_nxt', 'equity', 'equ_grp', 'pay', 'pay_grp']
+# Assuming vint1 is your DataFrame containing the tgt_daykey column
 
-# Renamed columns with "_end" suffix
-new_columns = [col + '_end' for col in original_columns]
+# Convert tgt_daykey to datetime format
+vint1['tgt_daykey'] = pd.to_datetime(vint1['tgt_daykey'], format='%Y%m%d')
 
-# Rename columns in the DataFrame
-df.rename(columns=dict(zip(original_columns, new_columns)), inplace=True)
+# Subtract one day from tgt_daykey to get tgt_daykey_prev
+vint1['tgt_daykey_prev'] = (vint1['tgt_daykey'] - pd.DateOffset(days=1)).dt.strftime('%Y%m%d').astype(int)
+

@@ -1,8 +1,19 @@
-# Assuming vint1 is your DataFrame containing the tgt_daykey column
+# First, calculate the value counts for the specified columns
+counts = vint2[['equ_grp', 'equ_grp_end']].value_counts().reset_index()
+counts.columns = ['equ_grp', 'equ_grp_end', 'count']
 
-# Convert tgt_daykey to datetime format
-vint1['tgt_daykey'] = pd.to_datetime(vint1['tgt_daykey'], format='%Y%m%d')
+# Calculate the total count for normalization
+total_count = counts['count'].sum()
 
-# Subtract one day from tgt_daykey to get tgt_daykey_prev
-vint1['tgt_daykey_prev'] = (vint1['tgt_daykey'] - pd.DateOffset(days=1)).dt.strftime('%Y%m%d').astype(int)
+# Calculate percentages
+counts['percentage'] = (counts['count'] / total_count) * 100
+
+# Add 'match' column
+counts['match'] = np.where(counts['equ_grp'] == counts['equ_grp_end'], 'Yes', 'No')
+
+# Convert the counts DataFrame to ensure 'count' and 'percentage' columns are numeric
+counts['count'] = counts['count'].astype(int)
+
+# Display the modified DataFrame
+print(counts)
 

@@ -1,19 +1,12 @@
-data pay;
-set track2;
-format tgt_dt date9.;
-dpd46 = 46;
-if dpd47<=dpd46 then tgt_dt=dt+1;
-else if dpd48<=dpd46 then tgt_dt=dt+2;
-else if dpd49<=dpd46 then tgt_dt=dt+3;
-else if dpd50<=dpd46 then tgt_dt=dt+4;
-else if dpd51<=dpd46 then tgt_dt=dt+5;
-else if dpd52<=dpd46 then tgt_dt=dt+6;
-else if dpd53<=dpd46 then tgt_dt=dt+7;
-else if dpd54<=dpd46 then tgt_dt=dt+8;
-else if dpd55<=dpd46 then tgt_dt=dt+9;
-else if dpd56<=dpd46 then tgt_dt=dt+10;
-else if dpd57<=dpd46 then tgt_dt=dt+11;
-else if dpd58<=dpd46 then tgt_dt=dt+12;
-else if dpd59<=dpd46 then tgt_dt=dt+13;
-else tgt_dt=dt+14;
-run;
+import pandas as pd
+
+# Assuming you have a DataFrame named df containing your data
+df['tgt_dt'] = pd.to_datetime(df['dt'], format='%d%b%Y')  # Convert 'dt' column to datetime
+
+dpd_threshold = 46
+for i in range(47, 60):
+    condition = df[f'dpd{i}'] <= dpd_threshold
+    df.loc[condition, 'tgt_dt'] = df.loc[condition, 'tgt_dt'] + pd.DateOffset(days=i-46)
+
+# Assuming 'dt' column is no longer needed
+# If needed, you can drop it using: df.drop(columns=['dt'], inplace=True)

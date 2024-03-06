@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Assuming you have a DataFrame named vint containing your data
-vint['tgt_dt'] = pd.to_datetime(vint['dt'], format='%d%b%Y')  # Convert 'dt' column to datetime
+vint['dt'] = pd.to_datetime(vint['dt'], format='%d%b%Y')  # Convert 'dt' column to datetime
 
 dpd_threshold = 46
 
@@ -11,15 +11,10 @@ def find_first_drop(row):
         column_name = f'dpd{i}'
         if row[column_name] <= dpd_threshold:
             return row['dt'] + pd.DateOffset(days=i-46)
-    return None
+    return row['dt'] + pd.DateOffset(days=15)  # Default value if no drop is found
 
 # Apply the function to each row using lambda
 vint['tgt_dt'] = vint.apply(lambda row: find_first_drop(row), axis=1)
 
-# If no drop is found, set 'tgt_dt' to dt + 15
-vint['tgt_dt'].fillna(vint['dt'] + pd.DateOffset(days=15), inplace=True)
-
 # If 'dt' column is no longer needed, you can drop it using:
 # vint.drop(columns=['dt'], inplace=True)
-
-

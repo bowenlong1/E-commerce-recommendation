@@ -5,16 +5,19 @@ vint['tgt_dt'] = pd.to_datetime(vint['dt'], format='%d%b%Y')  # Convert 'dt' col
 
 dpd_threshold = 46
 
-for index, row in vint.iterrows():
+# Define a function to find the first drop below the threshold
+def find_first_drop(row):
     for i in range(46, 61):
         column_name = f'dpd{i}'
         if row[column_name] <= dpd_threshold:
-            vint.at[index, 'tgt_dt'] = row['dt'] + pd.DateOffset(days=i-46)
-            break  # Stop iterating through columns once the first drop is found
+            return row['dt'] + pd.DateOffset(days=i-46)
+    return None
+
+# Apply the function to each row using lambda
+vint['tgt_dt'] = vint.apply(lambda row: find_first_drop(row), axis=1)
 
 # If no drop is found, set 'tgt_dt' to dt + 15
-if pd.isnull(vint['tgt_dt']).all():
-    vint['tgt_dt'] = vint['dt'] + pd.DateOffset(days=15)
+vint['tgt_dt'].fillna(vint['dt'] + pd.DateOffset(days=15), inplace=True)
 
 # If 'dt' column is no longer needed, you can drop it using:
 # vint.drop(columns=['dt'], inplace=True)

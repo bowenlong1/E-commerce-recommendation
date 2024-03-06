@@ -4,9 +4,10 @@ import pandas as pd
 df['tgt_dt'] = pd.to_datetime(df['dt'], format='%d%b%Y')  # Convert 'dt' column to datetime
 
 dpd_threshold = 46
-for i in range(47, 60):
+for i in range(47, 61):
     condition = df[f'dpd{i}'] <= dpd_threshold
     df.loc[condition, 'tgt_dt'] = df.loc[condition, 'tgt_dt'] + pd.DateOffset(days=i-46)
 
-# Assuming 'dt' column is no longer needed
-# If needed, you can drop it using: df.drop(columns=['dt'], inplace=True)
+# If 'dt' column is no longer needed, you can drop it using:
+# df.drop(columns=['dt'], inplace=True)
+

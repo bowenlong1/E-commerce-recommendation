@@ -1,35 +1,25 @@
-import pandas as pd
-import numpy as np
-from scipy.stats import ttest_ind
-
-# Assuming you have a DataFrame named vint2 containing your data
-
-# Step 1: Group by 'exp_grp' and 'equ_pay_grp_vint', and aggregate
-grouped_data = vint2.groupby(['exp_grp', 'equ_pay_grp_vint']).agg({'acct_nbr': 'count', 'move61': 'sum', 'move91': 'sum'})
-
-# Step 2: Calculate the percentage of move61 and move91 for each row
-grouped_data['move61_percent'] = grouped_data['move61'] / grouped_data['move61'].sum() * 100
-grouped_data['move91_percent'] = grouped_data['move91'] / grouped_data['move91'].sum() * 100
-
-# Step 3: Compare the differences in move61 and move91 between test groups and control group
-control_group = grouped_data.loc['control']
-test_groups = grouped_data.loc[['test0', 'test1', 'test2']]
-
-# Calculate the difference between test groups and control group
-test_groups['move61_diff'] = test_groups['move61'] - control_group['move61']
-test_groups['move91_diff'] = test_groups['move91'] - control_group['move91']
-
-# Perform t-test for move61 and move91 differences between test and control groups
-ttest_results = {}
-for col in ['move61_diff', 'move91_diff']:
-    ttest_results[col] = ttest_ind(control_group[col], test_groups[col])
-
-# Display the results as a DataFrame
-results_df = pd.DataFrame(ttest_results, index=['t-statistic', 'p-value'])
-
-# Display the grouped data and the statistical test results
-print("Grouped Data:")
-print(grouped_data)
-print("\nStatistical Test Results:")
-print(results_df)
-
+	exp_grp	equ_pay_grp_vint	acct_nbr	move61	move91	move61_percent	move91_percent
+0	control	highEquity-highPay	7464	2182	418	29.233655	5.600214
+1	control	highEquity-lowPay	14893	8702	2123	58.430135	14.255019
+2	control	highEquity-medPay	11099	4741	1176	42.715560	10.595549
+3	control	lowEquity-highPay	5259	1400	218	26.621031	4.145275
+4	control	lowEquity-lowPay	7831	4322	774	55.190908	9.883795
+5	control	lowEquity-medPay	5728	2292	454	40.013966	7.925978
+6	test0	highEquity-highPay	1013	329	54	32.477789	5.330701
+7	test0	highEquity-lowPay	2114	1246	288	58.940397	13.623463
+8	test0	highEquity-medPay	1571	723	173	46.021642	11.012094
+9	test0	lowEquity-highPay	761	221	30	29.040736	3.942181
+10	test0	lowEquity-lowPay	1220	673	122	55.163934	10.000000
+11	test0	lowEquity-medPay	820	347	78	42.317073	9.512195
+12	test1	highEquity-highPay	1096	310	49	28.284672	4.470803
+13	test1	highEquity-lowPay	2171	1251	284	57.623215	13.081529
+14	test1	highEquity-medPay	1666	722	192	43.337335	11.524610
+15	test1	lowEquity-highPay	695	204	27	29.352518	3.884892
+16	test1	lowEquity-lowPay	1120	656	130	58.571429	11.607143
+17	test1	lowEquity-medPay	802	337	51	42.019950	6.359102
+18	test2	highEquity-highPay	1054	314	54	29.791271	5.123340
+19	test2	highEquity-lowPay	2198	1303	314	59.281165	14.285714
+20	test2	highEquity-medPay	1692	701	163	41.430260	9.633570
+21	test2	lowEquity-highPay	779	215	31	27.599487	3.979461
+22	test2	lowEquity-lowPay	1142	632	131	55.341506	11.471103
+23	test2	lowEquity-medPay	808	332	59	41.089109	7.301980

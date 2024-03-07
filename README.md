@@ -1,13 +1,25 @@
 
-import pandas as pd
+from scipy.stats import chi2_contingency
 
-# Define the desired order for 'pay_grp' and 'equ_grp'
-pay_grp_order = ['high', 'med', 'low']
-equ_grp_order = ['high', 'low']
+# Create a dictionary to store p-values
+p_values = {}
 
-# Convert 'pay_grp' and 'equ_grp' columns to categorical with desired order
-vint2['pay_grp'] = pd.Categorical(vint2['pay_grp'], categories=pay_grp_order, ordered=True)
-vint2['equ_grp'] = pd.Categorical(vint2['equ_grp'], categories=equ_grp_order, ordered=True)
+# Loop through each test group and perform chi-squared test against control group
+for test_group in ['test0', 'test1', 'test2']:
+    control_counts = grouped_data[grouped_data['exp_grp'] == 'control']['move61']
+    test_group_counts = grouped_data[grouped_data['exp_grp'] == test_group]['move61']
+    
+    # Create a contingency table
+    contingency_table = [[control_counts.sum(), test_group_counts.sum()],
+                         [grouped_data['acct_nbr'].sum() - control_counts.sum(), 
+                          grouped_data['acct_nbr'].sum() - test_group_counts.sum()]]
+    
+    # Perform chi-squared test
+    _, p_val, _, _ = chi2_contingency(contingency_table)
+    
+    p_values[test_group] = p_val
 
-# Group by 'exp_grp', 'pay_grp', and 'equ_grp', then aggregate
-grouped_data = vint2.groupby(['exp_grp', 'pay_grp', 'equ_grp']).agg({'acct_nbr': 'count', 'move61': 'sum', 'move91': 'sum'}).reset_index()
+# Print p-values
+print("P-values for difference in 'move61' between each test group and control group:")
+for test_group, p_val in p_values.items():
+    print(f"{test_group}: {p_val}")

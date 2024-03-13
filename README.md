@@ -1,1 +1,28 @@
-
+PROC SQL;
+CONNECT TO ORACLE (USER=&UID. PW=&PWD. PATH='DW7PRD' PRESERVE_COMMENTS);
+CREATE TABLE EOT_WAIVER_TRNS_TOTAL AS SELECT * FROM CONNECTION TO ORACLE
+    (
+           SELECT /* FULL(A) FULL(B) FULL(C) FULL(D)*/  
+                   A.PARTIAL_ACCT_NBR, 
+                   B.TRANSACT_CD,
+                   B.TRANSACT_SHORT_DESCR,
+                   A.ITM_AMT AS WAIVER_AMT,
+                   C.AMT_TYPE_CD AS FEE_TYPE_CD,
+                   C.AMT_TYPE_DESCR AS FEE_TYPE_DESCR,
+                   B.TRANSACT_RSN_CD,
+                     B.TRANSACT_RSN_DESCR,
+                   A.EFF_DT_KEY, 
+                   A.ORIG_PROCESS_DT_KEY, 
+                     TO_NUMBER(TO_CHAR(TO_DATE(A.ORIG_PROCESS_DT_KEY,'YYYYMMDD')-1, 'YYYYMMDD')) AS PRIOR_PROCESS_DT,
+                   D.USR_ID,
+                     D.TRANSACT_ORIGN_CD
+               FROM MART_FINC.FINCL_TRANSACT_ITM_FACT A
+               JOIN MART_FINC.TRANSACT_CD_DIM B ON  A.ACCT_TRANSACT_CD_KEY=B.ACCT_TRANSACT_CD_KEY
+               JOIN MART_FINC.AMT_TYPE_DIM C ON A.AMT_TYPE_KEY=C.AMT_TYPE_KEY
+               JOIN MART_FINC.DATA_SRCE_DIM D ON A.DATA_SRCE_KEY = D.DATA_SRCE_KEY
+                WHERE B.REVRS_STATUS_CD='N' 
+                AND  A.ORIG_PROCESS_DT_KEY >= &day_key_prior_1yr. and A.ORIG_PROCESS_DT_KEY <= &day_key_prior.
+               and B.TRANSACT_CD in ('7010','8010')
+     );
+DISCONNECT FROM ORACLE;
+QUIT;

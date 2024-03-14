@@ -1,2 +1,1 @@
-Segmenation based on workable 46DPD vintages, 28% of 46DPD vintages were not workable during 46-60DPD and thus not treated by the experiment; For vintages not workable at 46DPD, imputed the segmentation based on earlies workable DPD during 46-60DPD![image](https://github.com/bowenlong1/E-commerce-recommendation/assets/38050947/6fe9e1a9-8614-4581-99e2-80c610ec9204)
-
+Segmentation was based on workable 46DPD vintages. For those not operable at 46DPD, segmentations were imputed using the earliest workable DPD during the 46-60DPD period. This resulted in 72% of 46DPD vintages being workable during the 46-60DPD period and having segmentations after imputation.

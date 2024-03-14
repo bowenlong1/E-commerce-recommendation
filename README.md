@@ -1,1 +1,1 @@
-Segmentation was based on workable 46DPD vintages. For those not operable at 46DPD, segmentations were imputed using the earliest workable DPD during the 46-60DPD period. This resulted in 72% of 46DPD vintages being workable during the 46-60DPD period and having segmentations after imputation.
+

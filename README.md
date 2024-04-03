@@ -1,1 +1,12 @@
-
+if (beg1>0 and end1< beg1+input(put(m1,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;
+if (beg12>0 and end12< beg12+input(put(m12,8.),yymmdd8.) - input(put(b12,8.),yymmdd8.)) or (beg12 = 0 and ebal12<sba12) then pay12 = 1; else pay12 = 0;

@@ -1,7 +1,6 @@
-Good morning Erwin/Mani,
+"Good morning Erwin/Mani,
 
-Please see attached the updated eot pipeline SAS code, the difference of this version is at the end of end, I combined all variabels and generate final output ‘fnl’ table. So as we discussed, it doesn’t impact the intermediate validation steps that Erwin is doing. please let me know if you have any questions.
+Please find attached the updated EOT pipeline SAS code. The main difference in this version is at the end, where I combined all variables and generated the final output table 'fnl'. As we discussed, this change doesn't affect the intermediate validation steps that Erwin is performing. Please let me know if you have any questions.
 
-Thanks,
-Bowen
+Thanks, Bowen"
 

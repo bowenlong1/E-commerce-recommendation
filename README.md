@@ -1,10 +1,9 @@
-Hi Quetzal,
+"Hi Quetzal,
 
-Thank you very much for providing the draft letter! I have shared it with the person at Citi who gave me the initial signature and ask for a new signature. I should be able to give you the new letter early next week.
+Thank you very much for providing the draft letter! I have shared it with the person at Citi who provided the initial signature and requested a new one. I should be able to provide you with the updated letter early next week.
 
-Also, I will be travelling to China for 3 weeks from Apr 22 to May 10, is there anything I need to pay attention to regarding my immigration status? I am currently on H1B and has PERM pending. And I got H1b stamp last year in Beijing China it will be valid unitll August 2024.
+Additionally, I wanted to inform you that I will be traveling to China for three weeks from April 22nd to May 10th. Is there anything I need to pay attention to regarding my immigration status? Currently, I am on an H1B visa with a pending PERM. I obtained an H1B stamp last year in Beijing, China, which is valid until August 2024.
 
-Thanks,
-Bowen
+Thanks, Bowen
 
 

@@ -14,17 +14,18 @@ data exp2;
     /* Filter based on day_key */
     where day_key >= 20231001;
 
-    /* Set holdout based on exp_grp, dpd, fake_equity_risk_grp, and pay_grp */
-    if exp_grp = 'control' then holdout = 0;
-    else if exp_grp = 'test0' then do;
-        if dpd in (46, 51, 56) then holdout = 1;
-        else holdout = 0;
-    end;
-    else if exp_grp = 'test1' then do;
+  
+    contrl_holdout = 0;
+
+    /***holdout for test0***/
+        if dpd in (46, 51, 56) then test0_holdout = 1;
+        else test0_holdout = 0;
+
+	/***holdout for test1***/
         if fake_equity_risk_grp = 'F1: Low' then do;
             if pay_grp2 = 'P1: High' then do;
-                if dpd in (46, 48, 50, 52, 54, 56, 58) then holdout = 1;
-                else holdout = 0;
+                if dpd in (46, 48, 50, 52, 54, 56, 58) then test1_holdout = 1;
+                else test1_holdout = 0;
             end;
             else if pay_grp2 = 'P2: Med' then do;
                 if dpd in (47, 49, 51, 53, 55) then holdout = 1;
@@ -50,10 +51,12 @@ data exp2;
             end;
         end;
     end;
-    else if exp_grp = 'test2' then do;
+
+
+	/***holdout for test2***/
         if fake_equity_risk_grp = 'F1: Low' then do;
             if pay_grp2 = 'P1: High' then do;
-                if dpd in (47, 49, 51, 53, 56, 57) then holdout = 1;
+                if dpd in (47, 49, 51, 53, 56, 57) then test2_holdout = 1;
                 else holdout = 0;
             end;
             else if pay_grp2 = 'P2: Med' then do;

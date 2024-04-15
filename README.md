@@ -2,11 +2,14 @@ data exp2;
     set exp1;
     format fake_equity_risk_erp $20.;
     drop var1;
-    rand = input(b.random_num, best.);
+    rand = input(random_num, best.);
     
     /* Determine fake_equity_risk_erp */
-    if rand >= 80 then fake_equity_risk_erp = 'high';
-    else fake_equity_risk_erp = 'low';
+    if rand >= 80 then fake_equity_risk_erp = 'F2: High';
+    else fake_equity_risk_erp = 'F1: Low';
+	if pay_grp = 'high' then pay_grp2 = 'P1: High'; 
+	else if pay_grp = 'med' then pay_grp2 = 'P2: Med';
+	else pay_grp2 = 'P3: Low';
     
     /* Filter based on day_key */
     where day_key >= 20231001;

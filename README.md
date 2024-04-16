@@ -1,8 +1,9 @@
 Title:
-Payment Performance by Times with 46+DPD and Repeated Delinquency 
-Pay rate of 46DPD accounts in the next 7 days/15 days
+46-60DPD Model Predictions
+% 46DPD Moving to 61/91/121+ DPD and/or charge by Predicted Pay groups
 Insights:
-Majority of 46dpd accounts in the 15-day rate are within 50%~60% regardless of 46+DPD Times in the last 12 months
-Accounts with 10+ repeated delinquency has on average of 15-day pay rate above 70%, the percentage of accounts is about 2.8%
+% 46DPD Moving to 61/91/121+ DPD and/or charge consistent with Predicted Pay groups
 Footnote:
-*Data from Workable 46DPD accounts from 2023/11 – 2024/12
+*Vintage date 2023/10 – 2024/01, charge-offs as of 04/02/2024
+**High/Med/Low propensity groups threshold based on 3-quantile predicted probablities
+

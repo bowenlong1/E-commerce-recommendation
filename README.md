@@ -1,32 +1,8 @@
-
-Times move to 46+DPD in the last 12 month	Predicted pay rate in the next 7 days	actual pay rate in the next 7 days	actual pay rate in the next 15 days	% of accounts
-0	52.2%	33.6%	63.8%	16.8%
-1	46.7%	31.1%	61.3%	12.2%
-2	43.6%	30.1%	59.1%	10.6%
-3	39.9%	26.5%	59.3%	10.2%
-4	37.9%	23.0%	53.8%	8.9%
-5	36.1%	22.1%	53.8%	8.2%
-6	34.5%	19.0%	49.8%	7.3%
-7	31.4%	21.1%	48.4%	6.3%
-8	29.6%	19.0%	54.1%	5.3%
-9	27.4%	16.5%	54.0%	4.4%
-10	24.3%	8.8%	43.1%	3.8%
-11	22.0%	12.5%	50.0%	3.1%
-12	20.8%	6.0%	50.0%	2.9%
-				
-				
-				
-Repeated delinquency in the last 12 months	Predicted pay rate in the next 7 days	actual pay rate in the next 7 days	actual pay rate in the next 15 days	% of accounts
-0	25.1%	12.0%	47.4%	0.049272116
-1	28.1%	15.9%	49.5%	0.088465845
-2	32.7%	18.6%	50.8%	0.120300752
-3	35.5%	22.8%	53.4%	0.148296273
-4	37.7%	22.8%	54.5%	0.147336426
-5	41.5%	28.3%	60.3%	0.134538474
-6	44.3%	28.2%	58.8%	0.108462646
-7	47.9%	32.2%	59.2%	0.082386818
-8	49.2%	32.2%	63.0%	0.057110862
-9	52.4%	33.8%	66.2%	0.035994241
-10	56.3%	37.1%	78.4%	0.018557031
-11+	52.9%	32.8%	74.1%	0.009278515
-![Uploading image.png…]()
+Title:
+Payment Performance by Times with 46+DPD and Repeated Delinquency 
+Pay rate of 46DPD accounts in the next 7 days/15 days
+Insights:
+Majority of 46dpd accounts in the 15-day rate are within 50%~60% regardless of 46+DPD Times in the last 12 months
+Accounts with 10+ repeated delinquency has on average of 15-day pay rate above 70%, the percentage of accounts is about 2.8%
+Footnote:
+*Data from Workable 46DPD accounts from 2023/11 – 2024/12

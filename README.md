@@ -7,3 +7,13 @@ If any immigration matters arise that require immediate attention, please contac
 Thank you for your attention to this matter.
 
 Best regards,
+
+proc univariate data=exp1 noprint;
+    var pay;
+    output out=quantiles
+        pctlpre=pct
+        pctlpts=33 66;
+run;
+
+proc print data=quantiles;
+run;

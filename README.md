@@ -4,6 +4,8 @@ Sub Checkboxes_s3()
     Dim i As Integer
     Dim cellWidth As Double
     Dim cellHeight As Double
+    Dim cellLeft As Double
+    Dim cellTop As Double
     Dim rowNum As Integer
     Dim colNum As Integer
     
@@ -14,13 +16,20 @@ Sub Checkboxes_s3()
     For rowNum = 3 To 17 ' Adjust the range as needed
         ' Loop through the columns
         For colNum = 10 To 15 ' Columns J to O
-            ' Set position for each checkbox at the center of the cell
+            ' Get cell dimensions
             cellWidth = ws.Cells(rowNum, colNum).Width
             cellHeight = ws.Cells(rowNum, colNum).Height
+            cellLeft = ws.Cells(rowNum, colNum).Left
+            cellTop = ws.Cells(rowNum, colNum).Top
+            
+            ' Calculate the position for the checkbox
+            Dim cbLeft As Double
+            Dim cbTop As Double
+            cbLeft = cellLeft + (cellWidth - 50) / 2 ' Center horizontally
+            cbTop = cellTop + (cellHeight - 20) / 2 ' Center vertically
             
             ' Create a checkbox
-            Set cb = ws.CheckBoxes.Add(ws.Cells(rowNum, colNum).Left + (cellWidth - 50) / 2, _
-                                       ws.Cells(rowNum, colNum).Top + (cellHeight - 20) / 2, 50, 20)
+            Set cb = ws.CheckBoxes.Add(cbLeft, cbTop, 50, 20)
             
             ' Link each checkbox to the corresponding cell
             cb.LinkedCell = ws.Cells(rowNum, colNum).Address

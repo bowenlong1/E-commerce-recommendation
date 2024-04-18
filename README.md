@@ -1,9 +1,12 @@
 Hi Sebastian,
 
-Here is update data pipeline for 2nd iteration based on the reconciliation code you shared. There are just few changes, I highlighted in the screenshot below.
+I've made updates to the data pipeline for the 2nd iteration based on the reconciliation code you provided. There are just a few changes, which I've highlighted in the screenshot below.
 
-1.	add ‘RD’ accounts filter to extension
- 
-2.	Add two more variables – month and monthday to samp3 dataset 
-Everything else stay the same, pleaset me know any questions.
+Added an 'RD' accounts filter to the extension.
+Included two additional variables - 'month' and 'monthday' - in the samp3 dataset.
+Everything else remains unchanged. Please let me know if you have any questions.
 
+[Include screenshot here]
+
+Best regards,
+[Your Name]

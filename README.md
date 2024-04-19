@@ -1,6 +1,5 @@
-Accounts with  12 times entering 46+DPD have a pay rate above 70% on average over 15 days
-0.8% of accounts have 12 times entering 46+DPD in the last 12 months
-The trend of pay rate by repeated delinquency is consistent with model predictions
+*Vintage date 2023/10 – 2024/01, charge-offs as of 04/02/2024. Accounts from the control group (70%) of 1st iteration
+**High/Med/Low propensity groups threshold determined using 3-quantile predicted probabilities (7-day payment probability prediction window)
 ![Uploading image.png…]()
 
 

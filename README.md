@@ -1,20 +1,14 @@
-proc sql;
-create table dq_sum1 as 
-select 
-    move46_ct,
-    avg(payct/12) as last_12pay,
-    avg(pay) as pay_pred_14d, 
-    avg(payd7) as pay_actual_7d, 
-    avg(payd15) as pay_actual_15d,
-    avg(payd24) as pay_actual_24d,
-    avg(payd30) as pay_actual_30d,
-    count(*) as ct,
-    count(*) / sum(count(*)) over () as percentage /* Calculate percentage */
-from 
-    workable
-where 
-    move46_ct >= 0 and loan_age >= 12
-group by 
-    1;
-quit;
+38             count(*) / sum(count(*)) over () as percentage,
+                                        ____
+                                        22
+ERROR 22-322: Syntax error, expecting one of the following: !, !!, &, *, **, +, ',', -, /, <, <=, <>, =, >, >=, ?, AND, BETWEEN, 
+              CONTAINS, EQ, EQT, FROM, GE, GET, GT, GTT, LE, LET, LIKE, LT, LTT, NE, NET, OR, ^=, |, ||, ~=.  
 
+39         	count(*) as ct
+40         from
+           ____
+           78
+           76
+ERROR 78-322: Expecting a ','.
+
+ERROR 76-322: Syntax error, statement will be ignored.

@@ -1,1 +1,1 @@
-
+"since_last_pmt_day_qty", "days_since_last_contact", "dpd_2_mnth_max", "dpd_3week", "cust_state_en", "month", "days_to_next_pmt", "dpd_5week", "pti", "days_since_last_ext", "dif_curdpd_maxdpd", "total_pmt_3m", "cur_mnth_bill", "dpd_5_mnth_max", "total_pmt_1week", "last_pmt_amt", "cur_apr", "total_pmt_1m", "days_in_call_queue_qty", "dpd_6_mnth_max", "monthday", "freq_545_fnl", "past_due_amt", "precsn_score", "dpd_7week", "days_since_ptp", "finc_amt"

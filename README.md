@@ -1,9 +1,6 @@
-All other variables are good and keep the same.
-
-Just for days since last report and fico, there are some missing values, so I need you add a category ‘Missing’ for these two variables, and on the chart show this category in the last, other categories the order keep the same:
-
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Assuming df_notax is your DataFrame
 
@@ -26,8 +23,18 @@ past_due_amt_labels = ['<=$500', '$500-$1000', '$1000-$2000', '$2000+']
 # Bin the data
 df_notax['dpd_category'] = pd.cut(df_notax['dpd'], bins=dpd_bins, labels=dpd_labels, right=True)
 df_notax['dsf_category'] = pd.cut(df_notax['dsf'], bins=dsf_bins, labels=dsf_labels, right=False)
-df_notax['days_since_last_rpt_category'] = pd.cut(df_notax['days_since_last_rpt'], bins=days_since_last_rpt_bins, labels=days_since_last_rpt_labels, right=True)
-df_notax['precsn_score_category'] = pd.cut(df_notax['precsn_score'], bins=precsn_score_bins, labels=precsn_score_labels, right=True)
+
+# Bin the data with missing category for 'days_since_last_rpt' and 'precsn_score'
+def add_missing_category(series, bins, labels):
+    category = pd.cut(series, bins=bins, labels=labels, right=True)
+    if series.isnull().any():
+        category = category.cat.add_categories(['Missing'])
+        category = category.fillna('Missing')
+    return category
+
+df_notax['days_since_last_rpt_category'] = add_missing_category(df_notax['days_since_last_rpt'], days_since_last_rpt_bins, days_since_last_rpt_labels)
+df_notax['precsn_score_category'] = add_missing_category(df_notax['precsn_score'], precsn_score_bins, precsn_score_labels)
+
 df_notax['past_due_amt_category'] = pd.cut(df_notax['past_due_amt'], bins=past_due_amt_bins, labels=past_due_amt_labels, right=True)
 
 # Create bar plots
@@ -43,12 +50,12 @@ axs[1].set_title('Pay by Days Since Finalization (DSF)')
 axs[1].set_xlabel('DSF Category')
 axs[1].set_ylabel('Propensity to Pay')
 
-df_notax.groupby('days_since_last_rpt_category')['pay'].mean().plot(kind='bar', ax=axs[2], color='coral', edgecolor='black')
+df_notax.groupby('days_since_last_rpt_category')['pay'].mean().reindex(days_since_last_rpt_labels + ['Missing']).plot(kind='bar', ax=axs[2], color='coral', edgecolor='black')
 axs[2].set_title('Pay by Days Since Last Reporting')
 axs[2].set_xlabel('Days Since Last Reporting')
 axs[2].set_ylabel('Propensity to Pay')
 
-df_notax.groupby('precsn_score_category')['pay'].mean().plot(kind='bar', ax=axs[3], color='purple', edgecolor='black')
+df_notax.groupby('precsn_score_category')['pay'].mean().reindex(precsn_score_labels + ['Missing']).plot(kind='bar', ax=axs[3], color='purple', edgecolor='black')
 axs[3].set_title('Pay by FICO Score')
 axs[3].set_xlabel('FICO Score Category')
 axs[3].set_ylabel('Propensity to Pay')
@@ -60,5 +67,3 @@ axs[4].set_ylabel('Propensity to Pay')
 
 plt.tight_layout()
 plt.show()
-
-

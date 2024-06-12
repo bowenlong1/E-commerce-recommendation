@@ -1,5 +1,3 @@
-Everything else will be same, but for df_notax I have two new variables (binary 0/1) 'mil_only' (Excess Mileage Fee Only,  0 for No, 1 for Yes), 'ewt_only' (Excessive Wear and Tear Fee ONLY 0 for No, 1 for Yes) , I want to add these two vairbales in the end for the bar plots, also they don’t have missing values.
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -40,7 +38,7 @@ df_notax['precsn_score_category'] = add_missing_category(df_notax['precsn_score'
 df_notax['past_due_amt_category'] = pd.cut(df_notax['past_due_amt'], bins=past_due_amt_bins, labels=past_due_amt_labels, right=True)
 
 # Create bar plots
-fig, axs = plt.subplots(5, 1, figsize=(10, 25))
+fig, axs = plt.subplots(7, 1, figsize=(10, 35))
 
 df_notax.groupby('dpd_category')['pay'].mean().plot(kind='bar', ax=axs[0], color='skyblue', edgecolor='black')
 axs[0].set_title('Propensity by Days Past Due (DPD)')
@@ -67,8 +65,17 @@ axs[4].set_title('Propensity by Past Due Amount')
 axs[4].set_xlabel('Past Due Amount Category')
 axs[4].set_ylabel('Propensity to Pay')
 
+df_notax.groupby('mil_only')['pay'].mean().plot(kind='bar', ax=axs[5], color='blue', edgecolor='black')
+axs[5].set_title('Propensity by Excess Mileage Fee Only (mil_only)')
+axs[5].set_xlabel('Excess Mileage Fee Only')
+axs[5].set_ylabel('Propensity to Pay')
+axs[5].set_xticklabels(['No', 'Yes'])
+
+df_notax.groupby('ewt_only')['pay'].mean().plot(kind='bar', ax=axs[6], color='red', edgecolor='black')
+axs[6].set_title('Propensity by Excessive Wear and Tear Fee Only (ewt_only)')
+axs[6].set_xlabel('Excessive Wear and Tear Fee Only')
+axs[6].set_ylabel('Propensity to Pay')
+axs[6].set_xticklabels(['No', 'Yes'])
+
 plt.tight_layout()
 plt.show()
-
-
-

@@ -1,3 +1,5 @@
+Everything else is good. But actually, for each variable, I want to create another barplot by the side, instead using propensity to pay (‘pay’) as y, I want to use actual pay or not as y (‘pay14’, 0/1, so in the bar plot, you may count 1 for the y value).
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -66,16 +68,17 @@ axs[4].set_xlabel('Past Due Amount Category')
 axs[4].set_ylabel('Propensity to Pay')
 
 df_notax.groupby('mil_only')['pay'].mean().plot(kind='bar', ax=axs[5], color='blue', edgecolor='black')
-axs[5].set_title('Propensity by Excess Mileage Fee Only (mil_only)')
+axs[5].set_title('Propensity by Excess Mileage Fee ONLY')
 axs[5].set_xlabel('Excess Mileage Fee Only')
 axs[5].set_ylabel('Propensity to Pay')
 axs[5].set_xticklabels(['No', 'Yes'])
 
 df_notax.groupby('ewt_only')['pay'].mean().plot(kind='bar', ax=axs[6], color='red', edgecolor='black')
-axs[6].set_title('Propensity by Excessive Wear and Tear Fee Only (ewt_only)')
+axs[6].set_title('Propensity by Excessive Wear and Tear Fee ONLY')
 axs[6].set_xlabel('Excessive Wear and Tear Fee Only')
 axs[6].set_ylabel('Propensity to Pay')
 axs[6].set_xticklabels(['No', 'Yes'])
 
 plt.tight_layout()
 plt.show()
+

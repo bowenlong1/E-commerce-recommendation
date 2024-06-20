@@ -1,11 +1,7 @@
-Hello everyone,
+Hi Yesenia,
 
-As some of you are aware, I have recently been promoted to HR Manager supporting Operations. Due to the change in my role, I will no longer support the Immigration program, effective immediately. 
+Congratulations on your promotion to HR Manager! I wanted to take a moment to express my sincere gratitude for all the help you've provided with my CPT, H1B, PWD, PERM, and all the follow-ups. Your guidance and help has been invaluable and deeply appreciated.
 
-Your new internal point of contact is Maribeth Ryan, Maribeth.Ryan@gmfinancial.com. Your external points of contact will continue to be Maggie Murphy mmurphy@bal.com and bburch@bal.com from the law firm, Berry, Appleman & Leiden (BAL). If Jackson Lewis is actively working on your case, please continue to reach out to Aimee Guthat Aimee.Guthat@jacksonlewis.com.
+I wish you the best of luck in your new role, and I'm sure you'll continue to excel. Thank you again for everything.
 
-I am very grateful for the opportunity to get to work with you all. Thank you so much for allowing me the opportunity to guide you through such an important part of your life.
-
-Please let me know if you have any questions. 
-
-Yesenia
+Best regards,

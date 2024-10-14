@@ -1,3 +1,8 @@
 Hi Quetzal,
 
-Follow up again my filing, any update? Please let me know if you have any questions or need anything else from me.
+I’m following up again regarding my I-140 filing. Do you have any updates on the status? Please let me know if there’s anything you need from me to assist with the process.
+
+Thank you for your time and support.
+
+Best regards,
+Bowen

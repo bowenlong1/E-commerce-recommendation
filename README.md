@@ -1,4 +1,4 @@
-Hi Amy, I found this slides presented in the previous executive meeting in Q1 2021, so the original goal of the experiment is to offer repo customer that don’t choose reinstatement, rewrite – as the second option. We learned that:
-1.	Reinstatement is high in the experiment period, proactively push rewrites will be disadvantageious
-2.	Eventhough every day there are hundred of customer eligible for rewrites, but we have difficuities reaching out to them once they are repo secured
+I found these slides from the previous executive meeting in Q1 2021. The original goal of the experiment was to offer repossessed customers who don’t choose reinstatement a rewrite as a second option. Here’s what we learned:
 
+Reinstatement rates were high during the experiment period, so proactively pushing rewrites may be disadvantageous.
+Although hundreds of customers are eligible for rewrites daily, we face challenges reaching them once their repossession is secured

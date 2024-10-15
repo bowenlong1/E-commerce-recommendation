@@ -1,7 +1,15 @@
-Key steps:
-Collected 1 year of data (1M+ rows, 300+ variables) and labeled next 7-day payments.
-Collaborated with business, performed EDA, and used Random Forest to select top 80 features.
-Tested multiple models and selected XGBoost as the baseline.
-Optimized XGBoost with hyperparameters; validated using F1-score and ROC-AUC.
-Selected top 30 features with SHAP for final deployment in Databricks
+0.32109
+0.298934
+0.284931
+0.272962
+0.268934
+0.255575
+0.27
+0.28
+0.29
+0.3
+0.31
+0.32
+0.35
+![image](https://github.com/user-attachments/assets/316a1bfd-8342-4b3f-9c33-0d4792c624ee)
 

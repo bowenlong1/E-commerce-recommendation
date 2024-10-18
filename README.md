@@ -1,7 +1,6 @@
-Hello, 
+Hello,
 
-I recently completed the ‘Statying Thoughtful’ corporate challenge and submitted my biometric results. I just wanted to check in whether any other activities I need to complete to earn any eligible reductions? Also I think previously, there is tobacco affidavit form, seems not available this year?
+I recently completed the ‘Staying Thoughtful’ corporate challenge and submitted my biometric results. I wanted to check if there are any other activities I need to complete to qualify for any eligible reductions. I also noticed that the tobacco affidavit form, which was available in previous years, doesn't seem to be offered this year. Is that correct?
 
 Thank you,
 Bowen
-

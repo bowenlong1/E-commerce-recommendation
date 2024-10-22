@@ -1,1 +1,1 @@
-
+check writing: Hi Nivedita, I had a meeting with business. we still need to update one email fitler for contact history, i am evaluating the logic shared by Mark, i will keep you updated. also, business mentioned due to traid freeze, they are proposing delay this experiment to 11/08, i will keep you updated as well.

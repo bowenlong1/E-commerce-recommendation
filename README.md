@@ -1,1 +1,1 @@
-
+I think it's John Istre proposed to delay it untill after triad freez. on October 25th, traid will freeze, in order to launch experiment during this period, they need to get a IT exception approval, possibly they feel it's easier just wait after freeze instead of get additional approval.

@@ -1,1 +1,1 @@
-Mark mentioned that it was John Istre who proposed delaying it until after the triad freeze. The triad will freeze on October 25th, and in order to launch the experiment during this period, they would need IT exception approval. They likely feel it's easier to wait until after the freeze rather than seek additional approval.
+

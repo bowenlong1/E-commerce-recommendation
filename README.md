@@ -1,1 +1,1 @@
-Thanks, Mark, for sharing the contact logic. I used it to re-check the latest contact date for the three accounts where we previously found issues. For two of the accounts, we were able to identify their latest contact that matches the default manager. However, for account number 112060795191, the DM shows a call was made on 10/17, but the shared logic couldn’t locate this contact. Please advise if any further adjustments are needed
+

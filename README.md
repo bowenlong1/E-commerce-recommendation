@@ -1,1 +1,1 @@
-I had a meeting with the business team, and we still need to update one email filter for the contact history. I am currently evaluating the logic shared by Mark and will keep you updated. Additionally, the business team mentioned that due to the trade freeze, they are proposing to delay the experiment to 11/08. I’ll keep you posted on this as well.
+

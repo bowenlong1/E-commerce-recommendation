@@ -53,6 +53,12 @@ scoring = {
 # TimeSeriesSplit for time-based cross-validation
 tscv = TimeSeriesSplit(n_splits=5)
 
+# Placeholder for training data and features
+# Ensure these variables are defined in your actual code
+X_train = ...  # Your training data
+y_train = ...  # Your target variable
+feature_pip = ...  # List of feature columns
+
 # Iterate over models
 for name, model in models.items():
     print(f"===== {name} =====")
@@ -84,4 +90,3 @@ for name, model in models.items():
         print(f"{metric.capitalize()}: {mean_metric:.4f} ± {std_metric:.4f}")
 
     print()
-

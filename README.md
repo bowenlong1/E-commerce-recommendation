@@ -1,5 +1,6 @@
 接着问我nlp 的问题，给了我几个句子， 问我如何能找出那些单词是需要first letter capitalized 的
 具体说一个你很快学会一个新技能和花很长时间学会一个新技能的经历
+time failure
 https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=694647&ctid=238381
 To B的SAAS软件（公司的财务用的比较多），现在subscription的收费模式是收$30/monthly, PM过来找你, 想改成$180/year。
 你会怎么分析？

@@ -1,10 +1,2 @@
-接着问我nlp 的问题，给了我几个句子， 问我如何能找出那些单词是需要first letter capitalized 的
-具体说一个你很快学会一个新技能和花很长时间学会一个新技能的经历
-time failure
-https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=694647&ctid=238381
-To B的SAAS软件（公司的财务用的比较多），现在subscription的收费模式是收$30/monthly, PM过来找你, 想改成$180/year。
-你会怎么分析？
-.--
-我想到breakeven point是6个月，然后plot life time by monthly的distribution 的plot。
-The Quickbooks paid media marketing team works with various online advertising channels like TV, Display, Paid Search, Paid Social, Affiliate, Audio marketing etc. for acquiring new customers for their portfolio of products  such as Quickbooks Online, self employed etc., and to drive awareness/consideration of their new product lines such as payroll, advanced and live bookkeeping. For the upcoming budgeting of marketing expenses for the new fiscal year, the Paid Media marketing leadership wants help to assess which channel, which product and possibly which advertising network/ partners, has been the most successful so far, for allocation of new funding
+Dalton and I discussed the simulation results, for DS, we still have concerns about the staring point regarding the workable accounts that DS can touch. Currently we starting from workable accounts based on logic shared by servicing analytics (as attached), it gave us 989 accounts (workload date 10/30), and on top of this 989 accounts, applying DS strategy, we are holding out 80% already – 789 accounts. even though we can still increase this percentage further e,g, 90%, however, the staffing workload accounts (1,463) is based on different logic, which is different from the logic that DS using to create strategy. So we have concerns how this assuming 90% requested holdout percentage will actually reflected in staffing workload. so unless DS receive consistent logic that generate staffing workload (1,463 accounts) and apply the strategy over here, there would be still concern and actual workload reduction.
 

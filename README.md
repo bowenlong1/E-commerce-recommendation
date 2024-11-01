@@ -1,1 +1,1 @@
-
+Thanks Dalton for sharing latest results. So after adding the property tax only and 14-day payment filters we discussed before, we still see refelected DS holdout in workload accounts is 455, lower than BAU holdout – 738, so which didn’t help much. So probably we need to priprotize reconciliation on the starting point logic that shared earlier, please let us know if you need any help from DS when you compare accounts and reconcile the logic.

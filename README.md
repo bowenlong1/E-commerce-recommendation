@@ -1,6 +1,1 @@
-Hi Team,
-Attached is the updated deck. Based on your feedback from Tuesday's meeting, we revised the workload reduction calculation for the manual component. The total estimated reduction in both dialer and manual workloads is now approximately 20%, using Servicing Analytics’ simulations for dialer data and FilePen data for manual workload. This represents the most accurate estimate available at this time. Please let us know if you have any further input.
-For next steps, we propose launching the experiment on December 6th with two DS strategies (25% each) and a 50% control group. Post-deployment, we will continue monitoring actual workload reduction using FilePen data, delinquency rate, and deficiency balance changes, as done in previous experiments.
-Regarding validation for future experiments, we agree on the importance of a comprehensive pre-deployment process. This will require close collaboration across DS, Servicing Analytics, and Staffing teams. DS is already exploring additional methods to validate pre-deployment EOT workload reduction numbers. For example, Bowen discussed with Josh this morning a plan to use FilePen to reevaluate simulated holdout numbers. We will keep you updated as this process evolves. Once finalized, this enhanced validation process can be applied to other experiments as well.
-Best regards,
-![image](https://github.com/user-attachments/assets/f9ec52a9-f4b6-4084-a5a3-33b9a974cd7e)
+

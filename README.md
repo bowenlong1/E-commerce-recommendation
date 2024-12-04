@@ -1,12 +1,7 @@
-Hi Anna,
+Hi Fiza,
 
-I hope this message finds you well. I am writing to formally resign from my position at GM Financial, with my last working day being December 20, 2024.
+I wanted to let you know personally that I submitted my resignation letter to Anna this morning—I didn’t want it to come as a surprise. I’ve truly enjoyed working with you over the years, even though we’ve had the occasional disagreement on projects (haha).
 
-This decision was not an easy one, as I have truly enjoyed being part of such a supportive and talented team. I am incredibly grateful for the opportunities I’ve had to learn and grow professionally during my time here.
+My last day will be December 20, and I’ll do my best to ensure a smooth transfer of responsibilities. Wishing you all the best moving forward!
 
-Over the next few weeks, I will do my best to ensure a smooth transition by completing outstanding tasks and assisting in transferring responsibilities to other team members. Please let me know if there is anything specific you would like me to focus on during this time.
-
-Thank you for your guidance and support throughout my journey here. The valuable experiences I’ve gained will stay with me as I move on to this next chapter. I hope to stay in touch and wish you and the team continued success.
-
-Sincerely,
-Bowen Long
+Take care,
